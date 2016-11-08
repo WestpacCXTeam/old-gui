@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]>
+	<html class="no-js lt-ie8 lt-ie9" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+	<html class="no-js lt-ie9 ie8" lang="en">
+<![endif]-->
+<!--[if IE 9 ]>
+	<html class="no-js ie9" lang="en">
+<![endif]-->
+<!--[if !(IE)]><!-->
+	<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">
+<base href="../../../BSA/">
+<!--[if IE 9 ]>
+	<script type="text/javascript">
+		(function() {
+			var baseTag = document.getElementsByTagName('base')[0];
+			baseTag.href = baseTag.href;
+		})();
+	</script>
+<![endif]-->
+	<title>Javascript framework || BSA GUI</title>
+	<script>
+		/*! grunt-grunticon Stylesheet Loader - v2.1.7 | https://github.com/filamentgroup/grunticon | (c) 2015 Scott Jehl, Filament Group, Inc. | MIT license. */
+		(function(e){function n(n,t,o,a){"use strict";var i=e.document.createElement("link"),r=t||e.document.getElementsByTagName("script")[0],d=e.document.styleSheets;return i.rel="stylesheet",i.href=n,i.media="only x",a&&(i.onload=a),r.parentNode.insertBefore(i,r),i.onloadcssdefined=function(e){for(var t,o=0;d.length>o;o++)d[o].href&&d[o].href.indexOf(n)>-1&&(t=!0);t?e():setTimeout(function(){i.onloadcssdefined(e)})},i.onloadcssdefined(function(){i.media=o||"all"}),i}function t(e,n){e.onload=function(){e.onload=null,n&&n.call(e)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in e&&e.onloadcssdefined(n)}var o=function(a,i){"use strict";if(a&&3===a.length){var r=e.Image,d=!(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||e.opera&&-1===navigator.userAgent.indexOf("Chrome")||-1!==navigator.userAgent.indexOf("Series40")),c=new r;c.onerror=function(){o.method="png",o.href=a[2],n(a[2])},c.onload=function(){var e=1===c.width&&1===c.height,r=a[e&&d?0:e?1:2];o.method=e&&d?"svg":e?"datapng":"png",o.href=r,t(n(r),i)},c.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",document.documentElement.className+=" grunticon"}};o.loadCSS=n,o.onloadCSS=t,e.grunticon=o})(this);(function(e,n){"use strict";var t=n.document,o="grunticon:",r=function(e){if(t.attachEvent?"complete"===t.readyState:"loading"!==t.readyState)e();else{var n=!1;t.addEventListener("readystatechange",function(){n||(n=!0,e())},!1)}},a=function(e){return n.document.querySelector('link[href$="'+e+'"]')},i=function(e){var n,t,r,a,i,c,s={};if(n=e.sheet,!n)return s;t=n.cssRules?n.cssRules:n.rules;for(var d=0;t.length>d;d++)r=t[d].cssText,a=o+t[d].selectorText,i=r.split(");")[0].match(/US\-ASCII\,([^"']+)/),i&&i[1]&&(c=decodeURIComponent(i[1]),s[a]=c);return s},c=function(e){var n,r,a,i;a="data-grunticon-embed";for(var c in e){i=c.slice(o.length);try{n=t.querySelectorAll(i)}catch(s){continue}r=[];for(var d=0;n.length>d;d++)null!==n[d].getAttribute(a)&&r.push(n[d]);if(r.length)for(d=0;r.length>d;d++)r[d].innerHTML=e[c],r[d].style.backgroundImage="none",r[d].removeAttribute(a)}return r},s=function(n){"svg"===e.method&&r(function(){c(i(a(e.href))),"function"==typeof n&&n()})};e.embedIcons=c,e.getCSS=a,e.getIcons=i,e.ready=r,e.svgLoadedCallback=s,e.embedSVG=s})(grunticon,this);
+		grunticon(["assets/css/symbols-0.2.0.data.svg.css", "assets/css/symbols-0.2.0.data.png.css", "assets/css/symbols-0.2.0.fallback.css"], grunticon.svgLoadedCallback);
+	</script>
+	<noscript><link href="assets/css/symbols-0.2.0.fallback.css" rel="stylesheet"></noscript>
+	<script type="text/javascript">
+		var $html=document.documentElement;if($html.classList)$html.classList.remove("no-js"),$html.classList.add("js");else{var className="no-js";$html.className=$html.className.replace(new RegExp("(^|\\b)"+className.split(" ").join("|")+"(\\b|$)","gi")," "),$html.className+=" js"}
+	</script>
+	<link rel="stylesheet" media="all" type="text/css" href="assets/css/site-0.2.0.min.css">
+	<!--[if lt IE 9]>
+		<script>
+			/* @preserve HTML5 Shiv 3.7.2 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed */
+			!function(a,b){function c(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function d(){var a=y.elements;return"string"==typeof a?a.split(" "):a}function e(a,b){var c=y.elements;"string"!=typeof c&&(c=c.join(" ")),"string"!=typeof a&&(a=a.join(" ")),y.elements=c+" "+a,j(b)}function f(a){var b=x[a[v]];return b||(b={},w++,a[v]=w,x[w]=b),b}function g(a,c,d){if(c||(c=b),q)return c.createElement(a);d||(d=f(c));var e;return e=d.cache[a]?d.cache[a].cloneNode():u.test(a)?(d.cache[a]=d.createElem(a)).cloneNode():d.createElem(a),!e.canHaveChildren||t.test(a)||e.tagUrn?e:d.frag.appendChild(e)}function h(a,c){if(a||(a=b),q)return a.createDocumentFragment();c=c||f(a);for(var e=c.frag.cloneNode(),g=0,h=d(),i=h.length;i>g;g++)e.createElement(h[g]);return e}function i(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return y.shivMethods?g(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+d().join().replace(/[\w\-:]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(y,b.frag)}function j(a){a||(a=b);var d=f(a);return!y.shivCSS||p||d.hasCSS||(d.hasCSS=!!c(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),q||i(a,d),a}function k(a){for(var b,c=a.getElementsByTagName("*"),e=c.length,f=RegExp("^(?:"+d().join("|")+")$","i"),g=[];e-=1;)b=c[e],f.test(b.nodeName)&&g.push(b.applyElement(l(b)));return g}function l(a){for(var b,c=a.attributes,d=c.length,e=a.ownerDocument.createElement(A+":"+a.nodeName);d-=1;)b=c[d],b.specified&&e.setAttribute(b.nodeName,b.nodeValue);return e.style.cssText=a.style.cssText,e}function m(a){for(var b,c=a.split("{"),e=c.length,f=RegExp("(^|[\\s,>+~])("+d().join("|")+")(?=[[\\s,>+~#.:]|$)","gi"),g="$1"+A+"\\:$2";e-=1;)b=c[e]=c[e].split("}"),b[b.length-1]=b[b.length-1].replace(f,g),c[e]=b.join("}");return c.join("{")}function n(a){for(var b=a.length;b-=1;)a[b].removeNode()}function o(a){function b(){clearTimeout(g._removeSheetTimer),d&&d.removeNode(!0),d=null}var d,e,g=f(a),h=a.namespaces,i=a.parentWindow;return!B||a.printShived?a:("undefined"==typeof h[A]&&h.add(A),i.attachEvent("onbeforeprint",function(){b();for(var f,g,h,i=a.styleSheets,j=[],l=i.length,n=Array(l);l-=1;)n[l]=i[l];for(;h=n.pop();)if(!h.disabled&&z.test(h.media)){try{f=h.imports,g=f.length}catch(o){g=0}for(l=0;g>l;l++)n.push(f[l]);try{j.push(h.cssText)}catch(o){}}j=m(j.reverse().join("")),e=k(a),d=c(a,j)}),i.attachEvent("onafterprint",function(){n(e),clearTimeout(g._removeSheetTimer),g._removeSheetTimer=setTimeout(b,500)}),a.printShived=!0,a)}var p,q,r="3.7.2",s=a.html5||{},t=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,u=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,v="_html5shiv",w=0,x={};!function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",p="hidden"in a,q=1==a.childNodes.length||function(){b.createElement("a");var a=b.createDocumentFragment();return"undefined"==typeof a.cloneNode||"undefined"==typeof a.createDocumentFragment||"undefined"==typeof a.createElement}()}catch(c){p=!0,q=!0}}();var y={elements:s.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video",version:r,shivCSS:s.shivCSS!==!1,supportsUnknownElements:q,shivMethods:s.shivMethods!==!1,type:"default",shivDocument:j,createElement:g,createDocumentFragment:h,addElements:e};a.html5=y,j(b);var z=/^$|\b(?:all|print)\b/,A="html5shiv",B=!q&&function(){var c=b.documentElement;return!("undefined"==typeof b.namespaces||"undefined"==typeof b.parentWindow||"undefined"==typeof c.applyElement||"undefined"==typeof c.removeNode||"undefined"==typeof a.attachEvent)}();y.type+=" print",y.shivPrint=o,o(b)}(this,document);
+		</script>
+		<script>
+			/* Respond.js v1.4.2: min/max-width media query polyfill * Copyright 2013 Scott Jehl Licensed under https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT */
+			!function(a){"use strict";a.matchMedia=a.matchMedia||function(a){var b,c=a.documentElement,d=c.firstElementChild||c.firstChild,e=a.createElement("body"),f=a.createElement("div");return f.id="mq-test-1",f.style.cssText="position:absolute;top:-100em",e.style.background="none",e.appendChild(f),function(a){return f.innerHTML='&shy;<style media="'+a+'"> #mq-test-1 { width: 42px; }</style>',c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"use strict";function b(){u(!0)}var c={};a.respond=c,c.update=function(){};var d=[],e=function(){var b=!1;try{b=new a.XMLHttpRequest}catch(c){b=new a.ActiveXObject("Microsoft.XMLHTTP")}return function(){return b}}(),f=function(a,b){var c=e();c&&(c.open("GET",a,!0),c.onreadystatechange=function(){4!==c.readyState||200!==c.status&&304!==c.status||b(c.responseText)},4!==c.readyState&&c.send(null))};if(c.ajax=f,c.queue=d,c.regex={media:/@media[^\{]+\{([^\{\}]*\{[^\}\{]*\})+/gi,keyframes:/@(?:\-(?:o|moz|webkit)\-)?keyframes[^\{]+\{(?:[^\{\}]*\{[^\}\{]*\})+[^\}]*\}/gi,urls:/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,findStyles:/@media *([^\{]+)\{([\S\s]+?)$/,only:/(only\s+)?([a-zA-Z]+)\s?/,minw:/\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,maxw:/\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/},c.mediaQueriesSupported=a.matchMedia&&null!==a.matchMedia("only all")&&a.matchMedia("only all").matches,!c.mediaQueriesSupported){var g,h,i,j=a.document,k=j.documentElement,l=[],m=[],n=[],o={},p=30,q=j.getElementsByTagName("head")[0]||k,r=j.getElementsByTagName("base")[0],s=q.getElementsByTagName("link"),t=function(){var a,b=j.createElement("div"),c=j.body,d=k.style.fontSize,e=c&&c.style.fontSize,f=!1;return b.style.cssText="position:absolute;font-size:1em;width:1em",c||(c=f=j.createElement("body"),c.style.background="none"),k.style.fontSize="100%",c.style.fontSize="100%",c.appendChild(b),f&&k.insertBefore(c,k.firstChild),a=b.offsetWidth,f?k.removeChild(c):c.removeChild(b),k.style.fontSize=d,e&&(c.style.fontSize=e),a=i=parseFloat(a)},u=function(b){var c="clientWidth",d=k[c],e="CSS1Compat"===j.compatMode&&d||j.body[c]||d,f={},o=s[s.length-1],r=(new Date).getTime();if(b&&g&&p>r-g)return a.clearTimeout(h),h=a.setTimeout(u,p),void 0;g=r;for(var v in l)if(l.hasOwnProperty(v)){var w=l[v],x=w.minw,y=w.maxw,z=null===x,A=null===y,B="em";x&&(x=parseFloat(x)*(x.indexOf(B)>-1?i||t():1)),y&&(y=parseFloat(y)*(y.indexOf(B)>-1?i||t():1)),w.hasquery&&(z&&A||!(z||e>=x)||!(A||y>=e))||(f[w.media]||(f[w.media]=[]),f[w.media].push(m[w.rules]))}for(var C in n)n.hasOwnProperty(C)&&n[C]&&n[C].parentNode===q&&q.removeChild(n[C]);n.length=0;for(var D in f)if(f.hasOwnProperty(D)){var E=j.createElement("style"),F=f[D].join("\n");E.type="text/css",E.media=D,q.insertBefore(E,o.nextSibling),E.styleSheet?E.styleSheet.cssText=F:E.appendChild(j.createTextNode(F)),n.push(E)}},v=function(a,b,d){var e=a.replace(c.regex.keyframes,"").match(c.regex.media),f=e&&e.length||0;b=b.substring(0,b.lastIndexOf("/"));var g=function(a){return a.replace(c.regex.urls,"$1"+b+"$2$3")},h=!f&&d;b.length&&(b+="/"),h&&(f=1);for(var i=0;f>i;i++){var j,k,n,o;h?(j=d,m.push(g(a))):(j=e[i].match(c.regex.findStyles)&&RegExp.$1,m.push(RegExp.$2&&g(RegExp.$2))),n=j.split(","),o=n.length;for(var p=0;o>p;p++)k=n[p],l.push({media:k.split("(")[0].match(c.regex.only)&&RegExp.$2||"all",rules:m.length-1,hasquery:k.indexOf("(")>-1,minw:k.match(c.regex.minw)&&parseFloat(RegExp.$1)+(RegExp.$2||""),maxw:k.match(c.regex.maxw)&&parseFloat(RegExp.$1)+(RegExp.$2||"")})}u()},w=function(){if(d.length){var b=d.shift();f(b.href,function(c){v(c,b.href,b.media),o[b.href]=!0,a.setTimeout(function(){w()},0)})}},x=function(){for(var b=0;b<s.length;b++){var c=s[b],e=c.href,f=c.media,g=c.rel&&"stylesheet"===c.rel.toLowerCase();e&&g&&!o[e]&&(c.styleSheet&&c.styleSheet.rawCssText?(v(c.styleSheet.rawCssText,e,f),o[e]=!0):(!/^([a-zA-Z:]*\/\/)/.test(e)&&!r||e.replace(RegExp.$1,"").split("/")[0]===a.location.host)&&("//"===e.substring(0,2)&&(e=a.location.protocol+e),d.push({href:e,media:f})))}w()};x(),c.update=x,c.getEmValue=t,a.addEventListener?a.addEventListener("resize",b,!1):a.attachEvent&&a.attachEvent("onresize",b)}}(this);
+		</script>
+	<![endif]-->
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-64356832-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+<body class="js-body layout-default page-javascript-framework has-onlyCore
+	is-subpage"
+	data-coremodules="_colors:2.0.2,_fonts:2.0.2,_grid:2.0.0,_javascript-helpers:2.0.0,_text-styling:4.0.0"
+	data-coresize="1">
+	<a class="sr-skiplink" href="/GUI/BSA/getting-started/javascript/#content">Skip to main content</a>
+	<noscript>
+		<h1 class="no-js-alert text-center" role="alert">This website needs JavaScript to work properly.</h1>
+	</noscript>
+<!--[if lt IE 9]>
+<table style="position:fixed;z-index:200;height:100%;width:100%;background:white;text-align:center;">
+<tr><td style="vertical-align:middle;">
+<h1 style="color:#000;">
+	<span class="icon icon-size-lg icon-settings"></span><br><br>
+	This site has not been optimised for old browsers.<br><br>
+	Please download a <a href="http://outdatedbrowser.com/en" target="_blank">modern browser</a><br>
+	<small>Sorry for the inconvenience</small>
+</h1>
+</td></tr>
+</table>
+<![endif]-->
+	<div class="container-fluid">
+<aside class="sidebar js-menu">
+	<div class="sidebar-wrapper js-sidebar">
+		<div class="sidebar-logo js-logo">
+			<a class="sidebar-logo-img symbol-logo-tablet" href="index.html" data-grunticon-embed>Logo</a>
+		</div>
+		<a class="navigation-link sidebar-gel sitesymbol-back-to-gel" href="/" data-grunticon-embed>Back to GEL</a>
+<nav class="navigation-wrapper">
+	<ul class="navigation navigation-level1 current-level1">
+					<li class="navigation-item is-activeParent is-first item-getting-started">
+						<a class="navigation-link" href=".">
+							Getting started
+						</a>
+						<ul class="navigation-subnav navigation-level2">
+					<li class="navigation-item item-colours">
+						<a class="navigation-link" href="colours/">
+							Colours
+						</a>
+						</li>
+					<li class="navigation-item item-typography">
+						<a class="navigation-link" href="typography/">
+							Typography
+						</a>
+						</li>
+					<li class="navigation-item item-layout">
+						<a class="navigation-link" href="layout/">
+							Layout
+						</a>
+						</li>
+					<li class="navigation-item item-containers">
+						<a class="navigation-link" href="containers/">
+							Containers
+						</a>
+						</li>
+					<li class="navigation-item item-buttons">
+						<a class="navigation-link" href="buttons/">
+							Buttons
+						</a>
+						</li>
+					<li class="navigation-item item-forms">
+						<a class="navigation-link" href="forms/">
+							Forms
+						</a>
+						</li>
+					<li class="navigation-item item-tables">
+						<a class="navigation-link" href="tables/">
+							Tables
+						</a>
+						</li>
+					<li class="navigation-item item-lists">
+						<a class="navigation-link" href="lists/">
+							Lists
+						</a>
+						</li>
+					<li class="navigation-item item-alerts">
+						<a class="navigation-link" href="alerts/">
+							Alerts
+						</a>
+						</li>
+					<li class="navigation-item item-popovers">
+						<a class="navigation-link" href="popovers/">
+							Popovers
+						</a>
+						</li>
+					<li class="navigation-item item-icons">
+						<a class="navigation-link" href="icons/">
+							Icons
+						</a>
+						</li>
+					<li class="navigation-item item-symbols">
+						<a class="navigation-link" href="symbols/">
+							Symbols
+						</a>
+						</li>
+					<li class="navigation-item item-navigation">
+						<a class="navigation-link" href="navigation/">
+							Navigation
+						</a>
+						</li>
+					<li class="navigation-item item-media">
+						<a class="navigation-link" href="media/">
+							Media
+						</a>
+						</li>
+					<li class="navigation-item item-helpers">
+						<a class="navigation-link" href="helpers/">
+							Helpers
+						</a>
+						</li>
+					<li class="navigation-item item-other-stuff">
+						<a class="navigation-link" href="other-stuff/">
+							Other stuff
+						</a>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</nav>
+		<a class="navigation-link sidebar-blender hidden-xs" href="blender/">The Blender</a>
+	</div>
+</aside>
+<header class="header">
+	<div class="headerline">
+		<button class="header-hamburger js-toggleMenu">
+			<span class="cheese">Click</span>
+			<span class="patty">to</span>
+			<span class="salad">Open Menu</span>
+		</button>
+		<h1 class="header-headline js-headerHeadline">
+				<span class="header-subline">Getting Started</span>
+				Javascript framework
+		</h1>
+		<div class="gridly-button-wrapper">
+			<span class="visible-lg-inline">Lg</span>
+			<span class="visible-md-inline">Md</span>
+			<span class="visible-sm-inline">Sm</span>
+			<span class="visible-xs-inline">Xs</span>
+			<span class="sr-only">breakpoint</span>
+			<button class="gridly-button js-gridly">
+				<span class="gridly-line gridly-show">Show</span>
+				<span class="gridly-line gridly-hide">or hide</span>
+				<span class="gridly-line">the</span>
+				<span class="gridly-line">grid</span>
+			</button>
+		</div>
+	</div>
+	<div class="blenderline">
+		<span class="blenderline-logo sitesymbol-gui-blender">GUI Blender</span>
+		<span class="blenderline-ingredients">
+			<span class="blenderline-item badge js-blender-count">0</span>
+			Ingredient<span class="js-blender-count-plural is-hidden">s</span> added to <a href="blender/">the Blender</a>
+		</span>
+		<span class="blenderline-ingredients blenderline-ingredients-empty">
+			Add Ingredients to <a href="blender/">the Blender</a>
+		</span>
+		<span class="blenderline-item-sizes">
+			Your blend is: &asymp;
+			<strong>
+				<span class="blenderline-item blenderline-item-size js-blender-size">1</span>kb
+			</strong>
+		</span>
+	</div>
+</header>
+		<main id="content" class="main-content">
+			<div class="container-fluid js-canvas">
+<div class="gridly">
+	<div class="row">
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+	</div>
+</div>
+				<div class="content">
+					<div class="row">
+	<div class="col-sm-12 col-md-10 col-md-offset-1 content-textblock">
+		<h2 class="body-font">Using the JavaScript framework</h2>
+		<p class="lead">
+			The GUI <a href="getting-started/core-modules">core</a> module <a href="helpers/#_javascript-helpers">_javascript-helpers</a> comes with some
+			great things you can use in your project and a framework you can easily extend to fit your needs.
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div id="debugflag" class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock has-id">
+		<h3 class="body-font">The DEBUG flag</h3>
+		<p class="content-text">
+			The DEBUG flag determines whether we write debug messages to the console and can be toggled with <code class="classes">GUI.DEBUG</code>.
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 example">
+		<div class="example-box
+			has-buttons
+		">
+	<div class="example-tabcontent-content">
+			Switch DEBUG on with: <code class="classes">GUI.DEBUG = true;</code><br />
+			Switch DEBUG off with: <code class="classes">GUI.DEBUG = false;</code>
+	</div>
+</div>
+	</div>
+</div>
+<div class="row">
+	<div id="debugflag" class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock has-id">
+		<h3 class="body-font">The DEBUGfilter array</h3>
+		<p class="content-text">
+			The DEBUGfilter array can help you make sense of the shatter in DEBUG central. Each module that is using the Debugger is prefixed with it's name e.g.
+			<code class="classes">popovers: Popover button clicked</code>. You can add this prefix to the <code class="classes">GUI.DEBUGfilter</code> array to
+			only show debug messages from that very module.
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 example">
+		<div class="example-box
+			has-buttons
+		">
+	<div class="example-tabcontent-content">
+			Only show debug messages from collapsible: <code class="classes">GUI.DEBUGfilter = ['collapsible'];</code><br />
+			Only show debug messages from collapsible and alerts: <code class="classes">GUI.DEBUGfilter = ['collapsible', 'alerts'];</code><br />
+			Switch filtering off again: <code class="classes">GUI.DEBUGfilter = [];</code>
+	</div>
+</div>
+	</div>
+</div>
+<div class="row">
+	<div id="debounce" class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock has-id">
+		<h3 class="body-font">The Debounce method</h3>
+		<p class="content-text">
+			Debouncing ensures that a function can only be called after passing an x amount of time of it's last call. This is important for performance and
+			will make sure events that, by their nature, are called several times per second only execute after the bulk of it has passed to keep processing
+			to a minimum. An example use-case would be when you add a listener to the resize event of the browser window. When the browser is then resized the
+			event would fire many times during the resizing, executing your listener each time. Adding the debouncer to the event listener will ensure your listener
+			will only fire after the resize is seemingly done. Read more <a href="https://css-tricks.com/the-difference-between-throttling-and-debouncing/" target="_blank">here</a>.
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 example">
+		<div class="example-box
+			has-buttons
+		">
+	<div class="example-tabcontent-content">
+			<p>
+				<code class="classes">
+					$(window).on('resize', GUI.debounce(YourFunction, 30) );
+				</code>
+			</p>
+			The method comes with three parameters:
+<pre>
+@param   func       [function]  Function to be executed
+@param   wait       [integer]   Wait for next iteration for n in milliseconds
+@param   immediate  [boolean]   Trigger the function on the leading edge [true], instead of the trailing [false]
+</pre>	</div>
+</div>
+	</div>
+</div>
+<div class="row">
+	<div id="throttle" class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock has-id">
+		<h3 class="body-font">The Throttle method</h3>
+		<p class="content-text">
+			Throttling ensures that a function is only called an x amount of time within a timespan. Same as the debounce function, this is important for performance
+			and will throttle a continues call of a function to a more sensible amount. An example use-case here would be the scroll event. While the browser
+			scrolls it fires the scroll event for each pixel which results in a lot of processing if you attach some logic. By using the throttle method you limit
+			the times the event is executing your function and free resources for the browser to spend somewhere else. Read more
+			<a href="https://css-tricks.com/the-difference-between-throttling-and-debouncing/" target="_blank">here</a>.
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 example">
+		<div class="example-box
+			has-buttons
+		">
+	<div class="example-tabcontent-content">
+			<p>
+				<code class="classes">
+					$(window).on('resize', GUI.throttle(YourFunction, 30) );
+				</code>
+			</p>
+			The method comes with three parameters:
+<pre>
+@param   func       [function]  Function to be executed
+@param   wait       [integer]   Run as much as possible without ever going more than once per [n in milliseconds] duration
+</pre>	</div>
+</div>
+	</div>
+</div>
+<div class="row">
+	<div id="debug" class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock has-id">
+		<h3 class="body-font">The Debug method</h3>
+		<p class="content-text">
+			In the GUI we use this method to debug our code and make sure everything runs as expected. You can call it with four different categories to make
+			readability easier. <code class="classes">report</code> for default messages, <code class="classes">error</code> for error reports,
+			<code class="classes">interaction</code> for user interactions, <code class="classes">send</code> for ajax requests and
+			<code class="classes">receive</code> for data arrivals.
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 example">
+		<div class="example-box
+			has-buttons
+		">
+	<div class="example-tabcontent-content">
+			<p>
+				<code class="classes">
+					GUI.debugging( 'Your own debug message', 'report' );
+				</code>
+			</p>
+			The method comes with three parameters:
+<pre>
+@param   text  [string]  Text to be printed to debugger
+@param   code  [string]  The urgency as a string: ['report', 'error', 'interaction', 'send', 'receive']
+</pre>	</div>
+</div>
+	</div>
+</div>
+<div class="row">
+	<div id="jquery-trap-input" class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock has-id">
+		<h3 class="body-font">The jQuery plugin for trapping focus</h3>
+		<p class="content-text">
+			We include one jQuery plugin for trapping focus. We use it to ensure a great accessibility experience in popups and dropdowns. Read about it
+			<a href="https://github.com/julienw/jquery-trap-input" target="_blank">here</a>.
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 example">
+		<div class="example-box
+			has-buttons
+		">
+	<div class="example-tabcontent-content">
+			To trap focus inside an element, run: <code class="classes">$(".js-your-selector").trap();</code>
+	</div>
+</div>
+	</div>
+</div>
+<div class="row">
+	<div id="extending" class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock has-id">
+		<h3 class="body-font">Extending the framework</h3>
+		<p class="content-text">
+			You can use the javascript framework as a starting point and add your own module. See below an example of an empty module. Run this code after the GUI
+			JavaScript.
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 example">
+		<div class="example-box
+			has-buttons
+		">
+	<div class="example-tabcontent-content">
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">GUI</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="kd">var</span> <span class="nx">module</span> <span class="o">=</span> <span class="p">{};</span>
+	<span class="c1">//create an object to assign to GUI</span>
+
+	<span class="c1">//------------------------------------------------------------------------</span>
+	<span class="c1">// private function: module internal stuff</span>
+	<span class="c1">//</span>
+	<span class="c1">// @param   input1  [string]  Description of input1</span>
+	<span class="c1">// @param   input2  [array]   Description of input2</span>
+	<span class="c1">//</span>
+	<span class="c1">// @return  [string]  Description of output</span>
+	<span class="c1">//------------------------------------------------------------------------</span>
+	<span class="kd">function</span> <span class="nx">dostuff</span><span class="p">(</span> <span class="nx">input1</span><span class="p">,</span> <span class="nx">input2</span> <span class="p">)</span> <span class="p">{</span>
+		<span class="nx">App</span><span class="p">.</span><span class="nx">debugging</span><span class="p">(</span> <span class="s1">'YOURMODULE: Running dostuff with '</span> <span class="o">+</span> <span class="nx">input1</span><span class="p">,</span> <span class="s1">'report'</span> <span class="p">);</span>
+
+		<span class="c1">// YOUR CODE</span>
+	<span class="p">}</span>
+
+
+	<span class="c1">//------------------------------------------------------------------------</span>
+	<span class="c1">// module init method</span>
+	<span class="c1">//------------------------------------------------------------------------</span>
+	<span class="nx">module</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">GUI</span><span class="p">.</span><span class="nx">debugging</span><span class="p">(</span> <span class="s1">'YOURMODULE: Initiating'</span><span class="p">,</span> <span class="s1">'report'</span> <span class="p">);</span>
+
+		<span class="nx">dostuff</span><span class="p">(</span> <span class="s1">'test'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'one'</span><span class="p">,</span> <span class="s1">'two'</span><span class="p">]</span> <span class="p">);</span> <span class="c1">//run private function</span>
+
+		<span class="nx">GUI</span><span class="p">.</span><span class="nx">YOURMODULE</span><span class="p">.</span><span class="nx">yourmethod</span><span class="p">();</span> <span class="c1">//run public method</span>
+
+		<span class="c1">// YOUR CODE</span>
+	<span class="p">};</span>
+
+
+	<span class="c1">//------------------------------------------------------------------------</span>
+	<span class="c1">// another public method</span>
+	<span class="c1">//------------------------------------------------------------------------</span>
+	<span class="nx">module</span><span class="p">.</span><span class="nx">yourmethod</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">GUI</span><span class="p">.</span><span class="nx">debugging</span><span class="p">(</span> <span class="s1">'YOURMODULE: Running yourmethod'</span><span class="p">,</span> <span class="s1">'report'</span> <span class="p">);</span>
+
+		<span class="c1">// YOUR CODE</span>
+	<span class="p">};</span>
+
+
+	<span class="nx">GUI</span><span class="p">.</span><span class="nx">YOURMODULE</span> <span class="o">=</span> <span class="nx">module</span><span class="p">;</span>
+	<span class="c1">//add your code to the GUI. make sure you mind</span>
+	<span class="c1">//the namespace that is already there.</span>
+
+
+	<span class="nx">GUI</span><span class="p">.</span><span class="nx">YOURMODULE</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+	<span class="c1">//run the modules init method</span>
+
+<span class="p">}(</span><span class="nx">GUI</span><span class="p">));</span></code></pre></figure>
+	</div>
+</div>
+	</div>
+</div>
+				</div>
+			</div>
+			<button class="btn btn-link btn-pokemon js-pokemonbtn" style="position:relative;float:right;padding:2em;">
+				<img src="assets/img/pokemon25.png" alt="Pokemon enable button" style="width:32px;height:auto;">
+			</button>
+		</main>
+	</div>
+<footer class="footer js-footer">
+	<span class="footer-social">
+		<span class="footer-social-text hidden-xs">Talk to us</span>
+		<a class="footer-social-item icon icon-size-md icon-email" href="mailto:gel@westpac.com.au" data-grunticon-embed>Email us</a>
+		<a class="footer-social-item sitesymbol-slack" href="https://westpac-digital.slack.com/signup" target="_blank" data-grunticon-embed>Slack us</a>
+		<a class="footer-social-item icon icon-size-md icon-github" href="https://github.com/WestpacCXTeam/" target="_blank" data-grunticon-embed>GitHub</a>
+	</span>
+	<a class="btn btn-link footer-button js-scrollToTop" href="getting-started/javascript/#top">Top</a>
+</footer>
+	<script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
+	<script type="text/javascript" src="assets/js/site-0.2.0.min.js"></script>
+</body>
+</html>

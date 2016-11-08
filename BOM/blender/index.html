@@ -1,0 +1,2956 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]>
+	<html class="no-js lt-ie8 lt-ie9" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+	<html class="no-js lt-ie9 ie8" lang="en">
+<![endif]-->
+<!--[if IE 9 ]>
+	<html class="no-js ie9" lang="en">
+<![endif]-->
+<!--[if !(IE)]><!-->
+	<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">
+<base href="../../BOM/">
+<!--[if IE 9 ]>
+	<script type="text/javascript">
+		(function() {
+			var baseTag = document.getElementsByTagName('base')[0];
+			baseTag.href = baseTag.href;
+		})();
+	</script>
+<![endif]-->
+	<title>The Blender || BOM GUI</title>
+	<script>
+		/*! grunt-grunticon Stylesheet Loader - v2.1.7 | https://github.com/filamentgroup/grunticon | (c) 2015 Scott Jehl, Filament Group, Inc. | MIT license. */
+		(function(e){function n(n,t,o,a){"use strict";var i=e.document.createElement("link"),r=t||e.document.getElementsByTagName("script")[0],d=e.document.styleSheets;return i.rel="stylesheet",i.href=n,i.media="only x",a&&(i.onload=a),r.parentNode.insertBefore(i,r),i.onloadcssdefined=function(e){for(var t,o=0;d.length>o;o++)d[o].href&&d[o].href.indexOf(n)>-1&&(t=!0);t?e():setTimeout(function(){i.onloadcssdefined(e)})},i.onloadcssdefined(function(){i.media=o||"all"}),i}function t(e,n){e.onload=function(){e.onload=null,n&&n.call(e)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in e&&e.onloadcssdefined(n)}var o=function(a,i){"use strict";if(a&&3===a.length){var r=e.Image,d=!(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||e.opera&&-1===navigator.userAgent.indexOf("Chrome")||-1!==navigator.userAgent.indexOf("Series40")),c=new r;c.onerror=function(){o.method="png",o.href=a[2],n(a[2])},c.onload=function(){var e=1===c.width&&1===c.height,r=a[e&&d?0:e?1:2];o.method=e&&d?"svg":e?"datapng":"png",o.href=r,t(n(r),i)},c.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",document.documentElement.className+=" grunticon"}};o.loadCSS=n,o.onloadCSS=t,e.grunticon=o})(this);(function(e,n){"use strict";var t=n.document,o="grunticon:",r=function(e){if(t.attachEvent?"complete"===t.readyState:"loading"!==t.readyState)e();else{var n=!1;t.addEventListener("readystatechange",function(){n||(n=!0,e())},!1)}},a=function(e){return n.document.querySelector('link[href$="'+e+'"]')},i=function(e){var n,t,r,a,i,c,s={};if(n=e.sheet,!n)return s;t=n.cssRules?n.cssRules:n.rules;for(var d=0;t.length>d;d++)r=t[d].cssText,a=o+t[d].selectorText,i=r.split(");")[0].match(/US\-ASCII\,([^"']+)/),i&&i[1]&&(c=decodeURIComponent(i[1]),s[a]=c);return s},c=function(e){var n,r,a,i;a="data-grunticon-embed";for(var c in e){i=c.slice(o.length);try{n=t.querySelectorAll(i)}catch(s){continue}r=[];for(var d=0;n.length>d;d++)null!==n[d].getAttribute(a)&&r.push(n[d]);if(r.length)for(d=0;r.length>d;d++)r[d].innerHTML=e[c],r[d].style.backgroundImage="none",r[d].removeAttribute(a)}return r},s=function(n){"svg"===e.method&&r(function(){c(i(a(e.href))),"function"==typeof n&&n()})};e.embedIcons=c,e.getCSS=a,e.getIcons=i,e.ready=r,e.svgLoadedCallback=s,e.embedSVG=s})(grunticon,this);
+		grunticon(["assets/css/symbols-0.2.0.data.svg.css", "assets/css/symbols-0.2.0.data.png.css", "assets/css/symbols-0.2.0.fallback.css"], grunticon.svgLoadedCallback);
+	</script>
+	<noscript><link href="assets/css/symbols-0.2.0.fallback.css" rel="stylesheet"></noscript>
+	<script type="text/javascript">
+		var $html=document.documentElement;if($html.classList)$html.classList.remove("no-js"),$html.classList.add("js");else{var className="no-js";$html.className=$html.className.replace(new RegExp("(^|\\b)"+className.split(" ").join("|")+"(\\b|$)","gi")," "),$html.className+=" js"}
+	</script>
+	<link rel="stylesheet" media="all" type="text/css" href="assets/css/site-0.2.0.min.css">
+	<!--[if lt IE 9]>
+		<script>
+			/* @preserve HTML5 Shiv 3.7.2 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed */
+			!function(a,b){function c(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function d(){var a=y.elements;return"string"==typeof a?a.split(" "):a}function e(a,b){var c=y.elements;"string"!=typeof c&&(c=c.join(" ")),"string"!=typeof a&&(a=a.join(" ")),y.elements=c+" "+a,j(b)}function f(a){var b=x[a[v]];return b||(b={},w++,a[v]=w,x[w]=b),b}function g(a,c,d){if(c||(c=b),q)return c.createElement(a);d||(d=f(c));var e;return e=d.cache[a]?d.cache[a].cloneNode():u.test(a)?(d.cache[a]=d.createElem(a)).cloneNode():d.createElem(a),!e.canHaveChildren||t.test(a)||e.tagUrn?e:d.frag.appendChild(e)}function h(a,c){if(a||(a=b),q)return a.createDocumentFragment();c=c||f(a);for(var e=c.frag.cloneNode(),g=0,h=d(),i=h.length;i>g;g++)e.createElement(h[g]);return e}function i(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return y.shivMethods?g(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+d().join().replace(/[\w\-:]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(y,b.frag)}function j(a){a||(a=b);var d=f(a);return!y.shivCSS||p||d.hasCSS||(d.hasCSS=!!c(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),q||i(a,d),a}function k(a){for(var b,c=a.getElementsByTagName("*"),e=c.length,f=RegExp("^(?:"+d().join("|")+")$","i"),g=[];e-=1;)b=c[e],f.test(b.nodeName)&&g.push(b.applyElement(l(b)));return g}function l(a){for(var b,c=a.attributes,d=c.length,e=a.ownerDocument.createElement(A+":"+a.nodeName);d-=1;)b=c[d],b.specified&&e.setAttribute(b.nodeName,b.nodeValue);return e.style.cssText=a.style.cssText,e}function m(a){for(var b,c=a.split("{"),e=c.length,f=RegExp("(^|[\\s,>+~])("+d().join("|")+")(?=[[\\s,>+~#.:]|$)","gi"),g="$1"+A+"\\:$2";e-=1;)b=c[e]=c[e].split("}"),b[b.length-1]=b[b.length-1].replace(f,g),c[e]=b.join("}");return c.join("{")}function n(a){for(var b=a.length;b-=1;)a[b].removeNode()}function o(a){function b(){clearTimeout(g._removeSheetTimer),d&&d.removeNode(!0),d=null}var d,e,g=f(a),h=a.namespaces,i=a.parentWindow;return!B||a.printShived?a:("undefined"==typeof h[A]&&h.add(A),i.attachEvent("onbeforeprint",function(){b();for(var f,g,h,i=a.styleSheets,j=[],l=i.length,n=Array(l);l-=1;)n[l]=i[l];for(;h=n.pop();)if(!h.disabled&&z.test(h.media)){try{f=h.imports,g=f.length}catch(o){g=0}for(l=0;g>l;l++)n.push(f[l]);try{j.push(h.cssText)}catch(o){}}j=m(j.reverse().join("")),e=k(a),d=c(a,j)}),i.attachEvent("onafterprint",function(){n(e),clearTimeout(g._removeSheetTimer),g._removeSheetTimer=setTimeout(b,500)}),a.printShived=!0,a)}var p,q,r="3.7.2",s=a.html5||{},t=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,u=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,v="_html5shiv",w=0,x={};!function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",p="hidden"in a,q=1==a.childNodes.length||function(){b.createElement("a");var a=b.createDocumentFragment();return"undefined"==typeof a.cloneNode||"undefined"==typeof a.createDocumentFragment||"undefined"==typeof a.createElement}()}catch(c){p=!0,q=!0}}();var y={elements:s.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video",version:r,shivCSS:s.shivCSS!==!1,supportsUnknownElements:q,shivMethods:s.shivMethods!==!1,type:"default",shivDocument:j,createElement:g,createDocumentFragment:h,addElements:e};a.html5=y,j(b);var z=/^$|\b(?:all|print)\b/,A="html5shiv",B=!q&&function(){var c=b.documentElement;return!("undefined"==typeof b.namespaces||"undefined"==typeof b.parentWindow||"undefined"==typeof c.applyElement||"undefined"==typeof c.removeNode||"undefined"==typeof a.attachEvent)}();y.type+=" print",y.shivPrint=o,o(b)}(this,document);
+		</script>
+		<script>
+			/* Respond.js v1.4.2: min/max-width media query polyfill * Copyright 2013 Scott Jehl Licensed under https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT */
+			!function(a){"use strict";a.matchMedia=a.matchMedia||function(a){var b,c=a.documentElement,d=c.firstElementChild||c.firstChild,e=a.createElement("body"),f=a.createElement("div");return f.id="mq-test-1",f.style.cssText="position:absolute;top:-100em",e.style.background="none",e.appendChild(f),function(a){return f.innerHTML='&shy;<style media="'+a+'"> #mq-test-1 { width: 42px; }</style>',c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"use strict";function b(){u(!0)}var c={};a.respond=c,c.update=function(){};var d=[],e=function(){var b=!1;try{b=new a.XMLHttpRequest}catch(c){b=new a.ActiveXObject("Microsoft.XMLHTTP")}return function(){return b}}(),f=function(a,b){var c=e();c&&(c.open("GET",a,!0),c.onreadystatechange=function(){4!==c.readyState||200!==c.status&&304!==c.status||b(c.responseText)},4!==c.readyState&&c.send(null))};if(c.ajax=f,c.queue=d,c.regex={media:/@media[^\{]+\{([^\{\}]*\{[^\}\{]*\})+/gi,keyframes:/@(?:\-(?:o|moz|webkit)\-)?keyframes[^\{]+\{(?:[^\{\}]*\{[^\}\{]*\})+[^\}]*\}/gi,urls:/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,findStyles:/@media *([^\{]+)\{([\S\s]+?)$/,only:/(only\s+)?([a-zA-Z]+)\s?/,minw:/\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,maxw:/\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/},c.mediaQueriesSupported=a.matchMedia&&null!==a.matchMedia("only all")&&a.matchMedia("only all").matches,!c.mediaQueriesSupported){var g,h,i,j=a.document,k=j.documentElement,l=[],m=[],n=[],o={},p=30,q=j.getElementsByTagName("head")[0]||k,r=j.getElementsByTagName("base")[0],s=q.getElementsByTagName("link"),t=function(){var a,b=j.createElement("div"),c=j.body,d=k.style.fontSize,e=c&&c.style.fontSize,f=!1;return b.style.cssText="position:absolute;font-size:1em;width:1em",c||(c=f=j.createElement("body"),c.style.background="none"),k.style.fontSize="100%",c.style.fontSize="100%",c.appendChild(b),f&&k.insertBefore(c,k.firstChild),a=b.offsetWidth,f?k.removeChild(c):c.removeChild(b),k.style.fontSize=d,e&&(c.style.fontSize=e),a=i=parseFloat(a)},u=function(b){var c="clientWidth",d=k[c],e="CSS1Compat"===j.compatMode&&d||j.body[c]||d,f={},o=s[s.length-1],r=(new Date).getTime();if(b&&g&&p>r-g)return a.clearTimeout(h),h=a.setTimeout(u,p),void 0;g=r;for(var v in l)if(l.hasOwnProperty(v)){var w=l[v],x=w.minw,y=w.maxw,z=null===x,A=null===y,B="em";x&&(x=parseFloat(x)*(x.indexOf(B)>-1?i||t():1)),y&&(y=parseFloat(y)*(y.indexOf(B)>-1?i||t():1)),w.hasquery&&(z&&A||!(z||e>=x)||!(A||y>=e))||(f[w.media]||(f[w.media]=[]),f[w.media].push(m[w.rules]))}for(var C in n)n.hasOwnProperty(C)&&n[C]&&n[C].parentNode===q&&q.removeChild(n[C]);n.length=0;for(var D in f)if(f.hasOwnProperty(D)){var E=j.createElement("style"),F=f[D].join("\n");E.type="text/css",E.media=D,q.insertBefore(E,o.nextSibling),E.styleSheet?E.styleSheet.cssText=F:E.appendChild(j.createTextNode(F)),n.push(E)}},v=function(a,b,d){var e=a.replace(c.regex.keyframes,"").match(c.regex.media),f=e&&e.length||0;b=b.substring(0,b.lastIndexOf("/"));var g=function(a){return a.replace(c.regex.urls,"$1"+b+"$2$3")},h=!f&&d;b.length&&(b+="/"),h&&(f=1);for(var i=0;f>i;i++){var j,k,n,o;h?(j=d,m.push(g(a))):(j=e[i].match(c.regex.findStyles)&&RegExp.$1,m.push(RegExp.$2&&g(RegExp.$2))),n=j.split(","),o=n.length;for(var p=0;o>p;p++)k=n[p],l.push({media:k.split("(")[0].match(c.regex.only)&&RegExp.$2||"all",rules:m.length-1,hasquery:k.indexOf("(")>-1,minw:k.match(c.regex.minw)&&parseFloat(RegExp.$1)+(RegExp.$2||""),maxw:k.match(c.regex.maxw)&&parseFloat(RegExp.$1)+(RegExp.$2||"")})}u()},w=function(){if(d.length){var b=d.shift();f(b.href,function(c){v(c,b.href,b.media),o[b.href]=!0,a.setTimeout(function(){w()},0)})}},x=function(){for(var b=0;b<s.length;b++){var c=s[b],e=c.href,f=c.media,g=c.rel&&"stylesheet"===c.rel.toLowerCase();e&&g&&!o[e]&&(c.styleSheet&&c.styleSheet.rawCssText?(v(c.styleSheet.rawCssText,e,f),o[e]=!0):(!/^([a-zA-Z:]*\/\/)/.test(e)&&!r||e.replace(RegExp.$1,"").split("/")[0]===a.location.host)&&("//"===e.substring(0,2)&&(e=a.location.protocol+e),d.push({href:e,media:f})))}w()};x(),c.update=x,c.getEmValue=t,a.addEventListener?a.addEventListener("resize",b,!1):a.attachEvent&&a.attachEvent("onresize",b)}}(this);
+		</script>
+	<![endif]-->
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-64356832-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+<body class="js-body layout-default page-the-blender has-onlyCore
+	"
+	data-coremodules="_colors:2.0.2,_fonts:2.0.2,_grid:2.0.0,_javascript-helpers:2.0.0,_text-styling:4.0.0"
+	data-coresize="1">
+	<a class="sr-skiplink" href="/GUI/BOM/blender/#content">Skip to main content</a>
+	<noscript>
+		<h1 class="no-js-alert text-center" role="alert">This website needs JavaScript to work properly.</h1>
+	</noscript>
+<!--[if lt IE 9]>
+<table style="position:fixed;z-index:200;height:100%;width:100%;background:white;text-align:center;">
+<tr><td style="vertical-align:middle;">
+<h1 style="color:#000;">
+	<span class="icon icon-size-lg icon-settings"></span><br><br>
+	This site has not been optimised for old browsers.<br><br>
+	Please download a <a href="http://outdatedbrowser.com/en" target="_blank">modern browser</a><br>
+	<small>Sorry for the inconvenience</small>
+</h1>
+</td></tr>
+</table>
+<![endif]-->
+	<div class="container-fluid">
+<aside class="sidebar js-menu">
+	<div class="sidebar-wrapper js-sidebar">
+		<div class="sidebar-logo js-logo">
+			<a class="sidebar-logo-img symbol-logo-tablet" href="index.html" data-grunticon-embed>Logo</a>
+		</div>
+		<a class="navigation-link sidebar-gel sitesymbol-back-to-gel" href="/" data-grunticon-embed>Back to GEL</a>
+<nav class="navigation-wrapper">
+	<ul class="navigation navigation-level1 current-level1">
+					<li class="navigation-item is-first item-getting-started">
+						<a class="navigation-link" href=".">
+							Getting started
+						</a>
+						<ul class="navigation-subnav navigation-level2">
+					<li class="navigation-item item-colours">
+						<a class="navigation-link" href="colours/">
+							Colours
+						</a>
+						</li>
+					<li class="navigation-item item-typography">
+						<a class="navigation-link" href="typography/">
+							Typography
+						</a>
+						</li>
+					<li class="navigation-item item-layout">
+						<a class="navigation-link" href="layout/">
+							Layout
+						</a>
+						</li>
+					<li class="navigation-item item-containers">
+						<a class="navigation-link" href="containers/">
+							Containers
+						</a>
+						</li>
+					<li class="navigation-item item-buttons">
+						<a class="navigation-link" href="buttons/">
+							Buttons
+						</a>
+						</li>
+					<li class="navigation-item item-forms">
+						<a class="navigation-link" href="forms/">
+							Forms
+						</a>
+						</li>
+					<li class="navigation-item item-tables">
+						<a class="navigation-link" href="tables/">
+							Tables
+						</a>
+						</li>
+					<li class="navigation-item item-lists">
+						<a class="navigation-link" href="lists/">
+							Lists
+						</a>
+						</li>
+					<li class="navigation-item item-alerts">
+						<a class="navigation-link" href="alerts/">
+							Alerts
+						</a>
+						</li>
+					<li class="navigation-item item-popovers">
+						<a class="navigation-link" href="popovers/">
+							Popovers
+						</a>
+						</li>
+					<li class="navigation-item item-icons">
+						<a class="navigation-link" href="icons/">
+							Icons
+						</a>
+						</li>
+					<li class="navigation-item item-symbols">
+						<a class="navigation-link" href="symbols/">
+							Symbols
+						</a>
+						</li>
+					<li class="navigation-item item-navigation">
+						<a class="navigation-link" href="navigation/">
+							Navigation
+						</a>
+						</li>
+					<li class="navigation-item item-media">
+						<a class="navigation-link" href="media/">
+							Media
+						</a>
+						</li>
+					<li class="navigation-item item-helpers">
+						<a class="navigation-link" href="helpers/">
+							Helpers
+						</a>
+						</li>
+					<li class="navigation-item item-other-stuff">
+						<a class="navigation-link" href="other-stuff/">
+							Other stuff
+						</a>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</nav>
+		<a class="navigation-link sidebar-blender hidden-xs is-active" href="blender/">The Blender</a>
+	</div>
+</aside>
+<header class="header">
+	<div class="headerline">
+		<button class="header-hamburger js-toggleMenu">
+			<span class="cheese">Click</span>
+			<span class="patty">to</span>
+			<span class="salad">Open Menu</span>
+		</button>
+		<h1 class="header-headline js-headerHeadline">
+				The Blender
+		</h1>
+		<div class="gridly-button-wrapper">
+			<span class="visible-lg-inline">Lg</span>
+			<span class="visible-md-inline">Md</span>
+			<span class="visible-sm-inline">Sm</span>
+			<span class="visible-xs-inline">Xs</span>
+			<span class="sr-only">breakpoint</span>
+			<button class="gridly-button js-gridly">
+				<span class="gridly-line gridly-show">Show</span>
+				<span class="gridly-line gridly-hide">or hide</span>
+				<span class="gridly-line">the</span>
+				<span class="gridly-line">grid</span>
+			</button>
+		</div>
+	</div>
+	<div class="blenderline">
+		<span class="blenderline-logo sitesymbol-gui-blender">GUI Blender</span>
+		<span class="blenderline-ingredients">
+			<span class="blenderline-item badge js-blender-count">0</span>
+			Ingredient<span class="js-blender-count-plural is-hidden">s</span> added to <a href="blender/">the Blender</a>
+		</span>
+		<span class="blenderline-ingredients blenderline-ingredients-empty">
+			Add Ingredients to <a href="blender/">the Blender</a>
+		</span>
+		<span class="blenderline-item-sizes">
+			Your blend is: &asymp;
+			<strong>
+				<span class="blenderline-item blenderline-item-size js-blender-size">1</span>kb
+			</strong>
+		</span>
+	</div>
+</header>
+		<main id="content" class="main-content">
+			<div class="container-fluid js-canvas">
+<div class="gridly">
+	<div class="row">
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+		<div class="col-xs-1"><div class="gridy-block"></div></div>
+	</div>
+</div>
+				<div class="content">
+					<div class="row">
+	<div class="col-sm-8 col-sm-offset-4 category-head lead">
+		Choose which HTML, CSS (or LESS) and JavaScript files to compile then blend your own flavour of the GUI.
+		To minimise the code bloat, your GUI download will only contain the assets that you add to the Blender.
+	</div>
+</div>
+<section class="blender">
+	<div class="row">
+		<div class="col-sm-12 text-right">
+			<button class="btn btn-primary btn-soft js-blender-clear blender-button-clear">Clear selections</button>
+		</div>
+	</div>
+	<form class="blender-form js-blender" method="POST" action="https://gel.westpacgroup.com.au/api/blender/">
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Colours</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-_colors">
+												<strong class="blender-module-name
+													is-block
+												">Colors</strong>
+											</label>
+											<label for="tick-_colors">
+												<span class="blender-module-description
+												">Core colour system used in the digital brand.</span>
+											</label>
+											<a class="blender-module-link" href="colours/#_colors">view</a>
+												<label class="blender-module-core text-info" for="tick-_colors">
+													This core module is always added.
+												</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+	js-module-base
+">
+			<label class="module-version-label" for="tick-_colors">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-_colors" id="select-_colors">
+					<option class="js-blender-_colors js-blender-_colors202" value="2.0.2" data-version="202" data-size="1">
+						2.0.2
+					</option>
+					<option class="js-blender-_colors js-blender-_colors201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-_colors js-blender-_colors200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-_colors js-blender-_colors101" value="1.0.1" data-version="101" data-size="1">
+						1.0.1
+					</option>
+					<option class="js-blender-_colors js-blender-_colors100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-_colors" id="tick-_colors" checked="checked" disabled="disabled" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Colors module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Typography</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-_fonts">
+												<strong class="blender-module-name
+													is-block
+												">Fonts</strong>
+											</label>
+											<label for="tick-_fonts">
+												<span class="blender-module-description
+												">Brand and body fonts with the font stack.</span>
+											</label>
+											<a class="blender-module-link" href="typography/#_fonts">view</a>
+												<label class="blender-module-core text-info" for="tick-_fonts">
+													This core module is always added.
+												</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+	js-module-base
+">
+			<label class="module-version-label" for="tick-_fonts">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-_fonts" id="select-_fonts">
+					<option class="js-blender-_fonts js-blender-_fonts202" value="2.0.2" data-version="202" data-size="1">
+						2.0.2
+					</option>
+					<option class="js-blender-_fonts js-blender-_fonts201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-_fonts js-blender-_fonts200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-_fonts js-blender-_fonts102" value="1.0.2" data-version="102" data-size="1">
+						1.0.2
+					</option>
+					<option class="js-blender-_fonts js-blender-_fonts101" value="1.0.1" data-version="101" data-size="1">
+						1.0.1
+					</option>
+					<option class="js-blender-_fonts js-blender-_fonts100" value="1.0.0" data-version="100" data-size="4">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-_fonts" id="tick-_fonts" checked="checked" disabled="disabled" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Fonts module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-_text-styling">
+												<strong class="blender-module-name
+													is-block
+												">Text Styling</strong>
+											</label>
+											<label for="tick-_text-styling">
+												<span class="blender-module-description
+												">Core HTML text elements.</span>
+											</label>
+											<a class="blender-module-link" href="typography/#_text-styling">view</a>
+												<label class="blender-module-core text-info" for="tick-_text-styling">
+													This core module is always added.
+												</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+	js-module-base
+">
+			<label class="module-version-label" for="tick-_text-styling">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-_text-styling" id="select-_text-styling">
+					<option class="js-blender-_text-styling js-blender-_text-styling400" value="4.0.0" data-dependencies="_colors101" data-version="400" data-size="1">
+						4.0.0
+					</option>
+					<option class="js-blender-_text-styling js-blender-_text-styling300" value="3.0.0" data-dependencies="_colors101" data-version="300" data-size="1">
+						3.0.0
+					</option>
+					<option class="js-blender-_text-styling js-blender-_text-styling201" value="2.0.1" data-dependencies="_colors101" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-_text-styling js-blender-_text-styling200" value="2.0.0" data-dependencies="_colors101" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-_text-styling js-blender-_text-styling103" value="1.0.3" data-dependencies="_colors101" data-version="103" data-size="1">
+						1.0.3
+					</option>
+					<option class="js-blender-_text-styling js-blender-_text-styling102" value="1.0.2" data-dependencies="_colors101" data-version="102" data-size="1">
+						1.0.2
+					</option>
+					<option class="js-blender-_text-styling js-blender-_text-styling101" value="1.0.1" data-version="101" data-size="1">
+						1.0.1
+					</option>
+					<option class="js-blender-_text-styling js-blender-_text-styling100" value="1.0.0" data-version="100" data-size="16">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-_text-styling" id="tick-_text-styling" checked="checked" disabled="disabled" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Text Styling module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-text-extensions">
+												<strong class="blender-module-name
+													is-block
+												">Text Extensions</strong>
+											</label>
+											<label for="tick-text-extensions">
+												<span class="blender-module-description
+												">Classes for additional text formatting.</span>
+											</label>
+											<a class="blender-module-link" href="typography/#text-extensions">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-text-extensions">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-text-extensions" id="select-text-extensions">
+					<option class="js-blender-text-extensions js-blender-text-extensions201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-text-extensions js-blender-text-extensions200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-text-extensions js-blender-text-extensions100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-text-extensions" id="tick-text-extensions" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Text Extensions module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Layout</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-_grid">
+												<strong class="blender-module-name
+													is-block
+												">Grid</strong>
+											</label>
+											<label for="tick-_grid">
+												<span class="blender-module-description
+												">12 column, responsive grid system.</span>
+											</label>
+											<a class="blender-module-link" href="layout/#_grid">view</a>
+												<label class="blender-module-core text-info" for="tick-_grid">
+													This core module is always added.
+												</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+	js-module-base
+">
+			<label class="module-version-label" for="tick-_grid">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-_grid" id="select-_grid">
+					<option class="js-blender-_grid js-blender-_grid200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-_grid js-blender-_grid100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-_grid" id="tick-_grid" checked="checked" disabled="disabled" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Grid module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-responsive-margins">
+												<strong class="blender-module-name
+													is-block
+												">Responsive-Margins</strong>
+											</label>
+											<label for="tick-responsive-margins">
+												<span class="blender-module-description
+												">Classes for vertical spacing between elements.</span>
+											</label>
+											<a class="blender-module-link" href="layout/#responsive-margins">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-responsive-margins">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-responsive-margins" id="select-responsive-margins">
+					<option class="js-blender-responsive-margins js-blender-responsive-margins201" value="2.0.1" data-version="201" data-size="3">
+						2.0.1
+					</option>
+					<option class="js-blender-responsive-margins js-blender-responsive-margins200" value="2.0.0" data-version="200" data-size="5">
+						2.0.0
+					</option>
+					<option class="js-blender-responsive-margins js-blender-responsive-margins100" value="1.0.0" data-version="100" data-size="5">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-responsive-margins" id="tick-responsive-margins" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Responsive-Margins module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-responsive-toggles">
+												<strong class="blender-module-name
+													is-block
+												">Responsive-Toggles</strong>
+											</label>
+											<label for="tick-responsive-toggles">
+												<span class="blender-module-description
+												">Classes to hide and show elements based on break point and print style.</span>
+											</label>
+											<a class="blender-module-link" href="layout/#responsive-toggles">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-responsive-toggles">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-responsive-toggles" id="select-responsive-toggles">
+					<option class="js-blender-responsive-toggles js-blender-responsive-toggles201" value="2.0.1" data-version="201" data-size="3">
+						2.0.1
+					</option>
+					<option class="js-blender-responsive-toggles js-blender-responsive-toggles200" value="2.0.0" data-version="200" data-size="3">
+						2.0.0
+					</option>
+					<option class="js-blender-responsive-toggles js-blender-responsive-toggles100" value="1.0.0" data-version="100" data-size="3">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-responsive-toggles" id="tick-responsive-toggles" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Responsive-Toggles module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Helpers</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-_javascript-helpers">
+												<strong class="blender-module-name
+													is-block
+												">Javascript Helpers</strong>
+											</label>
+											<label for="tick-_javascript-helpers">
+												<span class="blender-module-description
+												">JavaScript framework, with debugging, throttling and debouncing.</span>
+											</label>
+											<a class="blender-module-link" href="helpers/#_javascript-helpers">view</a>
+												<label class="blender-module-core text-info" for="tick-_javascript-helpers">
+													This core module is always added.
+												</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+	js-module-base
+">
+			<label class="module-version-label" for="tick-_javascript-helpers">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-_javascript-helpers" id="select-_javascript-helpers">
+					<option class="js-blender-_javascript-helpers js-blender-_javascript-helpers200" value="2.0.0" data-version="200" data-size="4">
+						2.0.0
+					</option>
+					<option class="js-blender-_javascript-helpers js-blender-_javascript-helpers101" value="1.0.1" data-version="101" data-size="4">
+						1.0.1
+					</option>
+					<option class="js-blender-_javascript-helpers js-blender-_javascript-helpers100" value="1.0.0" data-version="100" data-size="3">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-_javascript-helpers" id="tick-_javascript-helpers" checked="checked" disabled="disabled" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Javascript Helpers module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-accessibility-helpers">
+												<strong class="blender-module-name
+													is-block
+												">Accessibility Helpers</strong>
+											</label>
+											<label for="tick-accessibility-helpers">
+												<span class="blender-module-description
+												">Classes for 'skip links' and 'screen-reader only' text etc.</span>
+											</label>
+											<a class="blender-module-link" href="helpers/#accessibility-helpers">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-accessibility-helpers">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-accessibility-helpers" id="select-accessibility-helpers">
+					<option class="js-blender-accessibility-helpers js-blender-accessibility-helpers201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-accessibility-helpers js-blender-accessibility-helpers200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-accessibility-helpers js-blender-accessibility-helpers100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-accessibility-helpers" id="tick-accessibility-helpers" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Accessibility Helpers module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Alerts</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-alerts">
+												<strong class="blender-module-name
+													is-block
+												">Alerts</strong>
+											</label>
+											<label for="tick-alerts">
+												<span class="blender-module-description
+												">Contextual messaging panels and text - alerts, errors, info etc.</span>
+											</label>
+											<a class="blender-module-link" href="alerts/#alerts">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-alerts">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-alerts" id="select-alerts">
+					<option class="js-blender-alerts js-blender-alerts201" value="2.0.1" data-version="201" data-size="7">
+						2.0.1
+					</option>
+					<option class="js-blender-alerts js-blender-alerts200" value="2.0.0" data-version="200" data-size="7">
+						2.0.0
+					</option>
+					<option class="js-blender-alerts js-blender-alerts104" value="1.0.4" data-version="104" data-size="7">
+						1.0.4
+					</option>
+					<option class="js-blender-alerts js-blender-alerts103" value="1.0.3" data-version="103" data-size="7">
+						1.0.3
+					</option>
+					<option class="js-blender-alerts js-blender-alerts102" value="1.0.2" data-version="102" data-size="6">
+						1.0.2
+					</option>
+					<option class="js-blender-alerts js-blender-alerts101" value="1.0.1" data-version="101" data-size="6">
+						1.0.1
+					</option>
+					<option class="js-blender-alerts js-blender-alerts100" value="1.0.0" data-version="100" data-size="6">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-alerts" id="tick-alerts" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Alerts module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Other stuff</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-badges">
+												<strong class="blender-module-name
+													is-block
+												">Badges</strong>
+											</label>
+											<label for="tick-badges">
+												<span class="blender-module-description
+												">Styled element to highlight a number.</span>
+											</label>
+											<a class="blender-module-link" href="other-stuff/#badges">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-badges">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-badges" id="select-badges">
+					<option class="js-blender-badges js-blender-badges201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-badges js-blender-badges200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-badges js-blender-badges100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-badges" id="tick-badges" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Badges module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-labels">
+												<strong class="blender-module-name
+													is-block
+												">Labels</strong>
+											</label>
+											<label for="tick-labels">
+												<span class="blender-module-description
+												">Styled element to highlight a word.</span>
+											</label>
+											<a class="blender-module-link" href="other-stuff/#labels">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-labels">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-labels" id="select-labels">
+					<option class="js-blender-labels js-blender-labels202" value="2.0.2" data-version="202" data-size="1">
+						2.0.2
+					</option>
+					<option class="js-blender-labels js-blender-labels201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-labels js-blender-labels200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-labels js-blender-labels100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-labels" id="tick-labels" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Labels module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-progress-bars">
+												<strong class="blender-module-name
+													is-block
+												">Progress-Bars</strong>
+											</label>
+											<label for="tick-progress-bars">
+												<span class="blender-module-description
+												">Visual representation of progress</span>
+											</label>
+											<a class="blender-module-link" href="other-stuff/#progress-bars">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-progress-bars">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-progress-bars" id="select-progress-bars">
+					<option class="js-blender-progress-bars js-blender-progress-bars201" value="2.0.1" data-version="201" data-size="2">
+						2.0.1
+					</option>
+					<option class="js-blender-progress-bars js-blender-progress-bars200" value="2.0.0" data-version="200" data-size="2">
+						2.0.0
+					</option>
+					<option class="js-blender-progress-bars js-blender-progress-bars100" value="1.0.0" data-version="100" data-size="2">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-progress-bars" id="tick-progress-bars" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Progress-Bars module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Navigation</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-breadcrumbs">
+												<strong class="blender-module-name
+													is-block
+												">Breadcrumbs</strong>
+											</label>
+											<label for="tick-breadcrumbs">
+												<span class="blender-module-description
+												">Styled navigational links used to indicate a user journey or path.</span>
+											</label>
+											<a class="blender-module-link" href="navigation/#breadcrumbs">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-breadcrumbs">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-breadcrumbs" id="select-breadcrumbs">
+					<option class="js-blender-breadcrumbs js-blender-breadcrumbs201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-breadcrumbs js-blender-breadcrumbs200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-breadcrumbs js-blender-breadcrumbs100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-breadcrumbs" id="tick-breadcrumbs" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Breadcrumbs module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-paginations">
+												<strong class="blender-module-name
+													is-block
+												">Paginations</strong>
+											</label>
+											<label for="tick-paginations">
+												<span class="blender-module-description
+												">Styled links to navigate within a set of related views.</span>
+											</label>
+											<a class="blender-module-link" href="navigation/#paginations">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-paginations">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-paginations" id="select-paginations">
+					<option class="js-blender-paginations js-blender-paginations202" value="2.0.2" data-version="202" data-size="2">
+						2.0.2
+					</option>
+					<option class="js-blender-paginations js-blender-paginations201" value="2.0.1" data-version="201" data-size="2">
+						2.0.1
+					</option>
+					<option class="js-blender-paginations js-blender-paginations200" value="2.0.0" data-version="200" data-size="2">
+						2.0.0
+					</option>
+					<option class="js-blender-paginations js-blender-paginations100" value="1.0.0" data-version="100" data-size="2">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-paginations" id="tick-paginations" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Paginations module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Buttons</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-buttons">
+												<strong class="blender-module-name
+													is-block
+												">Buttons</strong>
+											</label>
+											<label for="tick-buttons">
+												<span class="blender-module-description
+												">All buttons including button groups, dropdown-buttons etc.</span>
+											</label>
+											<a class="blender-module-link" href="buttons/#buttons">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-buttons">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-buttons" id="select-buttons">
+					<option class="js-blender-buttons js-blender-buttons301" value="3.0.1" data-version="301" data-size="20">
+						3.0.1
+					</option>
+					<option class="js-blender-buttons js-blender-buttons300" value="3.0.0" data-version="300" data-size="19">
+						3.0.0
+					</option>
+					<option class="js-blender-buttons js-blender-buttons201" value="2.0.1" data-version="201" data-size="18">
+						2.0.1
+					</option>
+					<option class="js-blender-buttons js-blender-buttons200" value="2.0.0" data-version="200" data-size="18">
+						2.0.0
+					</option>
+					<option class="js-blender-buttons js-blender-buttons103" value="1.0.3" data-version="103" data-size="18">
+						1.0.3
+					</option>
+					<option class="js-blender-buttons js-blender-buttons102" value="1.0.2" data-version="102" data-size="17">
+						1.0.2
+					</option>
+					<option class="js-blender-buttons js-blender-buttons101" value="1.0.1" data-version="101" data-size="11">
+						1.0.1
+					</option>
+					<option class="js-blender-buttons js-blender-buttons100" value="1.0.0" data-version="100" data-size="10">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-buttons" id="tick-buttons" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Buttons module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Forms</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-checkboxes">
+												<strong class="blender-module-name
+													is-block
+												">Checkboxes</strong>
+											</label>
+											<label for="tick-checkboxes">
+												<span class="blender-module-description
+												">Styled checkboxes with SVG enhancements.</span>
+											</label>
+											<a class="blender-module-link" href="forms/#checkboxes">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-checkboxes">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-checkboxes" id="select-checkboxes">
+					<option class="js-blender-checkboxes js-blender-checkboxes202" value="2.0.2" data-dependencies="_colors101" data-version="202" data-size="10">
+						2.0.2
+					</option>
+					<option class="js-blender-checkboxes js-blender-checkboxes201" value="2.0.1" data-dependencies="_colors101" data-version="201" data-size="11">
+						2.0.1
+					</option>
+					<option class="js-blender-checkboxes js-blender-checkboxes200" value="2.0.0" data-dependencies="_colors101" data-version="200" data-size="11">
+						2.0.0
+					</option>
+					<option class="js-blender-checkboxes js-blender-checkboxes104" value="1.0.4" data-dependencies="_colors101" data-version="104" data-size="11">
+						1.0.4
+					</option>
+					<option class="js-blender-checkboxes js-blender-checkboxes103" value="1.0.3" data-dependencies="_colors101" data-version="103" data-size="10">
+						1.0.3
+					</option>
+					<option class="js-blender-checkboxes js-blender-checkboxes102" value="1.0.2" data-dependencies="_colors101" data-version="102" data-size="10">
+						1.0.2
+					</option>
+					<option class="js-blender-checkboxes js-blender-checkboxes101" value="1.0.1" data-version="101" data-size="10">
+						1.0.1
+					</option>
+					<option class="js-blender-checkboxes js-blender-checkboxes100" value="1.0.0" data-version="100" data-size="10">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-checkboxes" id="tick-checkboxes" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Checkboxes module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-input-addons">
+												<strong class="blender-module-name
+													is-block
+												">Input-Addons</strong>
+											</label>
+											<label for="tick-input-addons">
+												<span class="blender-module-description
+												">Styled input fields with attached selects or buttons.</span>
+											</label>
+											<a class="blender-module-link" href="forms/#input-addons">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-input-addons">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-input-addons" id="select-input-addons">
+					<option class="js-blender-input-addons js-blender-input-addons202" value="2.0.2" data-version="202" data-size="7">
+						2.0.2
+					</option>
+					<option class="js-blender-input-addons js-blender-input-addons201" value="2.0.1" data-version="201" data-size="6">
+						2.0.1
+					</option>
+					<option class="js-blender-input-addons js-blender-input-addons200" value="2.0.0" data-version="200" data-size="6">
+						2.0.0
+					</option>
+					<option class="js-blender-input-addons js-blender-input-addons101" value="1.0.1" data-version="101" data-size="5">
+						1.0.1
+					</option>
+					<option class="js-blender-input-addons js-blender-input-addons100" value="1.0.0" data-version="100" data-size="5">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-input-addons" id="tick-input-addons" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Input-Addons module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-input-fields">
+												<strong class="blender-module-name
+													is-block
+												">Input-Fields</strong>
+											</label>
+											<label for="tick-input-fields">
+												<span class="blender-module-description
+												">Styled input fields including, text, email, date, textarea and selects etc.</span>
+											</label>
+											<a class="blender-module-link" href="forms/#input-fields">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-input-fields">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-input-fields" id="select-input-fields">
+					<option class="js-blender-input-fields js-blender-input-fields201" value="2.0.1" data-version="201" data-size="6">
+						2.0.1
+					</option>
+					<option class="js-blender-input-fields js-blender-input-fields200" value="2.0.0" data-version="200" data-size="6">
+						2.0.0
+					</option>
+					<option class="js-blender-input-fields js-blender-input-fields103" value="1.0.3" data-version="103" data-size="6">
+						1.0.3
+					</option>
+					<option class="js-blender-input-fields js-blender-input-fields102" value="1.0.2" data-version="102" data-size="4">
+						1.0.2
+					</option>
+					<option class="js-blender-input-fields js-blender-input-fields101" value="1.0.1" data-version="101" data-size="4">
+						1.0.1
+					</option>
+					<option class="js-blender-input-fields js-blender-input-fields100" value="1.0.0" data-version="100" data-size="4">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-input-fields" id="tick-input-fields" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Input-Fields module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-input-groups">
+												<strong class="blender-module-name
+													is-block
+												">Input-Groups</strong>
+											</label>
+											<label for="tick-input-groups">
+												<span class="blender-module-description
+												">Styled input fields with attached attributes ie $ or %.</span>
+											</label>
+											<a class="blender-module-link" href="forms/#input-groups">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-input-groups">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-input-groups" id="select-input-groups">
+					<option class="js-blender-input-groups js-blender-input-groups202" value="2.0.2" data-version="202" data-size="3">
+						2.0.2
+					</option>
+					<option class="js-blender-input-groups js-blender-input-groups201" value="2.0.1" data-version="201" data-size="3">
+						2.0.1
+					</option>
+					<option class="js-blender-input-groups js-blender-input-groups200" value="2.0.0" data-version="200" data-size="3">
+						2.0.0
+					</option>
+					<option class="js-blender-input-groups js-blender-input-groups100" value="1.0.0" data-version="100" data-size="3">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-input-groups" id="tick-input-groups" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Input-Groups module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-radios">
+												<strong class="blender-module-name
+													is-block
+												">Radios</strong>
+											</label>
+											<label for="tick-radios">
+												<span class="blender-module-description
+												">Styled radio buttons with SVG enhancements.</span>
+											</label>
+											<a class="blender-module-link" href="forms/#radios">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-radios">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-radios" id="select-radios">
+					<option class="js-blender-radios js-blender-radios202" value="2.0.2" data-dependencies="_colors101" data-version="202" data-size="11">
+						2.0.2
+					</option>
+					<option class="js-blender-radios js-blender-radios201" value="2.0.1" data-dependencies="_colors101" data-version="201" data-size="12">
+						2.0.1
+					</option>
+					<option class="js-blender-radios js-blender-radios200" value="2.0.0" data-dependencies="_colors101" data-version="200" data-size="12">
+						2.0.0
+					</option>
+					<option class="js-blender-radios js-blender-radios104" value="1.0.4" data-dependencies="_colors101" data-version="104" data-size="12">
+						1.0.4
+					</option>
+					<option class="js-blender-radios js-blender-radios103" value="1.0.3" data-dependencies="_colors101" data-version="103" data-size="12">
+						1.0.3
+					</option>
+					<option class="js-blender-radios js-blender-radios102" value="1.0.2" data-dependencies="_colors101" data-version="102" data-size="12">
+						1.0.2
+					</option>
+					<option class="js-blender-radios js-blender-radios101" value="1.0.1" data-version="101" data-size="12">
+						1.0.1
+					</option>
+					<option class="js-blender-radios js-blender-radios100" value="1.0.0" data-version="100" data-size="12">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-radios" id="tick-radios" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Radios module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-switches">
+												<strong class="blender-module-name
+													is-block
+												">Switches</strong>
+											</label>
+											<label for="tick-switches">
+												<span class="blender-module-description
+												">Switch buttons for on/off, yes/no settings.</span>
+											</label>
+											<a class="blender-module-link" href="forms/#switches">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-switches">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-switches" id="select-switches">
+					<option class="js-blender-switches js-blender-switches202" value="2.0.2" data-version="202" data-size="9">
+						2.0.2
+					</option>
+					<option class="js-blender-switches js-blender-switches201" value="2.0.1" data-version="201" data-size="9">
+						2.0.1
+					</option>
+					<option class="js-blender-switches js-blender-switches200" value="2.0.0" data-version="200" data-size="9">
+						2.0.0
+					</option>
+					<option class="js-blender-switches js-blender-switches101" value="1.0.1" data-version="101" data-size="9">
+						1.0.1
+					</option>
+					<option class="js-blender-switches js-blender-switches100" value="1.0.0" data-version="100" data-size="8">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-switches" id="tick-switches" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Switches module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Icons</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-base">
+												<strong class="blender-module-name
+													is-block
+												">Icons-Base</strong>
+											</label>
+											<label for="tick-icons-base">
+												<span class="blender-module-description
+												">Classes to manage icon size and embedding.</span>
+											</label>
+											<a class="blender-module-link" href="icons/#icons-base">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-base">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-base" id="select-icons-base">
+					<option class="js-blender-icons-base js-blender-icons-base201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-icons-base js-blender-icons-base200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-base js-blender-icons-base101" value="1.0.1" data-version="101" data-size="1">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-base js-blender-icons-base100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-base" id="tick-icons-base" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Base module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group01">
+												<strong class="blender-module-name
+												">Icons-Group 1</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group01">view</a>
+											<label for="tick-icons-group01">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-loading"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group01">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group01" id="select-icons-group01">
+					<option class="js-blender-icons-group01 js-blender-icons-group01201" value="2.0.1" data-dependencies="icons-base" data-version="201" data-size="11">
+						2.0.1
+					</option>
+					<option class="js-blender-icons-group01 js-blender-icons-group01200" value="2.0.0" data-dependencies="icons-base" data-version="200" data-size="11">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group01 js-blender-icons-group01101" value="1.0.1" data-dependencies="icons-base" data-version="101" data-size="11">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group01 js-blender-icons-group01100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="11">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group01" id="tick-icons-group01" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 1 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group02">
+												<strong class="blender-module-name
+												">Icons-Group 2</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group02">view</a>
+											<label for="tick-icons-group02">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-credit-card"></span> <span class="icon icon-size-sm icon-dollar"></span> <span class="icon icon-size-sm icon-growth"></span> <span class="icon icon-size-sm icon-limit"></span> <span class="icon icon-size-sm icon-money-in"></span> <span class="icon icon-size-sm icon-money-out"></span> <span class="icon icon-size-sm icon-percent"></span> <span class="icon icon-size-sm icon-super"></span> <span class="icon icon-size-sm icon-switch"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group02">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group02" id="select-icons-group02">
+					<option class="js-blender-icons-group02 js-blender-icons-group02300" value="3.0.0" data-dependencies="_colors101, icons-base" data-version="300" data-size="28">
+						3.0.0
+					</option>
+					<option class="js-blender-icons-group02 js-blender-icons-group02200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="29">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group02 js-blender-icons-group02102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="29">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group02 js-blender-icons-group02101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="29">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group02 js-blender-icons-group02100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="29">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group02" id="tick-icons-group02" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 2 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group03">
+												<strong class="blender-module-name
+												">Icons-Group 3</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group03">view</a>
+											<label for="tick-icons-group03">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-business-person"></span> <span class="icon icon-size-sm icon-eftpos"></span> <span class="icon icon-size-sm icon-office"></span> <span class="icon icon-size-sm icon-shop"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group03">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group03" id="select-icons-group03">
+					<option class="js-blender-icons-group03 js-blender-icons-group03200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="7">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group03 js-blender-icons-group03102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="7">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group03 js-blender-icons-group03101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="7">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group03 js-blender-icons-group03100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="7">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group03" id="tick-icons-group03" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 3 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group04">
+												<strong class="blender-module-name
+												">Icons-Group 4</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group04">view</a>
+											<label for="tick-icons-group04">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-house"></span> <span class="icon icon-size-sm icon-people"></span> <span class="icon icon-size-sm icon-person"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group04">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group04" id="select-icons-group04">
+					<option class="js-blender-icons-group04 js-blender-icons-group04200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="6">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group04 js-blender-icons-group04102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="6">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group04 js-blender-icons-group04101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="6">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group04 js-blender-icons-group04100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="6">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group04" id="tick-icons-group04" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 4 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group05">
+												<strong class="blender-module-name
+												">Icons-Group 5</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group05">view</a>
+											<label for="tick-icons-group05">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-australia"></span> <span class="icon icon-size-sm icon-chat"></span> <span class="icon icon-size-sm icon-clock"></span> <span class="icon icon-size-sm icon-edit"></span> <span class="icon icon-size-sm icon-email"></span> <span class="icon icon-size-sm icon-id-card"></span> <span class="icon icon-size-sm icon-padlock"></span> <span class="icon icon-size-sm icon-print"></span> <span class="icon icon-size-sm icon-sms"></span> <span class="icon icon-size-sm icon-stopwatch"></span> <span class="icon icon-size-sm icon-telephone"></span> <span class="icon icon-size-sm icon-tick"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group05">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group05" id="select-icons-group05">
+					<option class="js-blender-icons-group05 js-blender-icons-group05200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="28">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group05 js-blender-icons-group05102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="28">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group05 js-blender-icons-group05101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="28">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group05 js-blender-icons-group05100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="30">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group05" id="tick-icons-group05" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 5 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group06">
+												<strong class="blender-module-name
+												">Icons-Group 6</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group06">view</a>
+											<label for="tick-icons-group06">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-excel-file"></span> <span class="icon icon-size-sm icon-generic-file"></span> <span class="icon icon-size-sm icon-pdf-file"></span> <span class="icon icon-size-sm icon-word-file"></span> <span class="icon icon-size-sm icon-zip-file"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group06">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group06" id="select-icons-group06">
+					<option class="js-blender-icons-group06 js-blender-icons-group06200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="10">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group06 js-blender-icons-group06102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="10">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group06 js-blender-icons-group06101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="10">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group06 js-blender-icons-group06100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="10">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group06" id="tick-icons-group06" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 6 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group07">
+												<strong class="blender-module-name
+												">Icons-Group 7</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group07">view</a>
+											<label for="tick-icons-group07">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-atm"></span> <span class="icon icon-size-sm icon-calculator"></span> <span class="icon icon-size-sm icon-calendar"></span> <span class="icon icon-size-sm icon-camera"></span> <span class="icon icon-size-sm icon-message"></span> <span class="icon icon-size-sm icon-mobile-pay"></span> <span class="icon icon-size-sm icon-notification"></span> <span class="icon icon-size-sm icon-paypass"></span> <span class="icon icon-size-sm icon-quick-balance"></span> <span class="icon icon-size-sm icon-service-bell"></span> <span class="icon icon-size-sm icon-settings"></span> <span class="icon icon-size-sm icon-shelf-menu"></span> <span class="icon icon-size-sm icon-to-mobile"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group07">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group07" id="select-icons-group07">
+					<option class="js-blender-icons-group07 js-blender-icons-group07200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="28">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group07 js-blender-icons-group07102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="28">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group07 js-blender-icons-group07101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="28">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group07 js-blender-icons-group07100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="60">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group07" id="tick-icons-group07" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 7 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group08">
+												<strong class="blender-module-name
+												">Icons-Group 8</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group08">view</a>
+											<label for="tick-icons-group08">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-bar-chart"></span> <span class="icon icon-size-sm icon-invest"></span> <span class="icon icon-size-sm icon-pie-chart"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group08">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group08" id="select-icons-group08">
+					<option class="js-blender-icons-group08 js-blender-icons-group08200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="5">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group08 js-blender-icons-group08102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="5">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group08 js-blender-icons-group08101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="5">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group08 js-blender-icons-group08100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="5">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group08" id="tick-icons-group08" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 8 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group09">
+												<strong class="blender-module-name
+												">Icons-Group 9</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group09">view</a>
+											<label for="tick-icons-group09">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-accessibility"></span> <span class="icon icon-size-sm icon-car"></span> <span class="icon icon-size-sm icon-geolocation"></span> <span class="icon icon-size-sm icon-map-pin"></span> <span class="icon icon-size-sm icon-map"></span> <span class="icon icon-size-sm icon-transport"></span> <span class="icon icon-size-sm icon-walk"></span> <span class="icon icon-size-sm icon-wheelchair"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group09">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group09" id="select-icons-group09">
+					<option class="js-blender-icons-group09 js-blender-icons-group09200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="16">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group09 js-blender-icons-group09104" value="1.0.4" data-dependencies="_colors101, icons-base" data-version="104" data-size="16">
+						1.0.4
+					</option>
+					<option class="js-blender-icons-group09 js-blender-icons-group09103" value="1.0.3" data-dependencies="_colors101, icons-base" data-version="103" data-size="16">
+						1.0.3
+					</option>
+					<option class="js-blender-icons-group09 js-blender-icons-group09102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="16">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group09 js-blender-icons-group09101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="13">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group09 js-blender-icons-group09100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="13">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group09" id="tick-icons-group09" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 9 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group10">
+												<strong class="blender-module-name
+												">Icons-Group 10</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group10">view</a>
+											<label for="tick-icons-group10">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-android"></span> <span class="icon icon-size-sm icon-apple"></span> <span class="icon icon-size-sm icon-desktop"></span> <span class="icon icon-size-sm icon-phone"></span> <span class="icon icon-size-sm icon-tablet"></span> <span class="icon icon-size-sm icon-windows-new"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group10">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group10" id="select-icons-group10">
+					<option class="js-blender-icons-group10 js-blender-icons-group10200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="10">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group10 js-blender-icons-group10102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="10">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group10 js-blender-icons-group10101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="10">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group10 js-blender-icons-group10100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="10">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group10" id="tick-icons-group10" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 10 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group11">
+												<strong class="blender-module-name
+												">Icons-Group 11</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group11">view</a>
+											<label for="tick-icons-group11">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-account"></span> <span class="icon icon-size-sm icon-bpay"></span> <span class="icon icon-size-sm icon-history-clock"></span> <span class="icon icon-size-sm icon-move-from"></span> <span class="icon icon-size-sm icon-move-to"></span> <span class="icon icon-size-sm icon-transfer"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group11">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group11" id="select-icons-group11">
+					<option class="js-blender-icons-group11 js-blender-icons-group11200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="13">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group11 js-blender-icons-group11102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="13">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group11 js-blender-icons-group11101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="13">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group11 js-blender-icons-group11100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="13">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group11" id="tick-icons-group11" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 11 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group12">
+												<strong class="blender-module-name
+												">Icons-Group 12</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group12">view</a>
+											<label for="tick-icons-group12">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-dropbox"></span> <span class="icon icon-size-sm icon-facebook"></span> <span class="icon icon-size-sm icon-github"></span> <span class="icon icon-size-sm icon-google-plus"></span> <span class="icon icon-size-sm icon-linkedin"></span> <span class="icon icon-size-sm icon-rss"></span> <span class="icon icon-size-sm icon-share"></span> <span class="icon icon-size-sm icon-star1"></span> <span class="icon icon-size-sm icon-star2"></span> <span class="icon icon-size-sm icon-star3"></span> <span class="icon icon-size-sm icon-twitter"></span> <span class="icon icon-size-sm icon-youtube"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group12">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group12" id="select-icons-group12">
+					<option class="js-blender-icons-group12 js-blender-icons-group12200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="26">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group12 js-blender-icons-group12103" value="1.0.3" data-dependencies="_colors101, icons-base" data-version="103" data-size="26">
+						1.0.3
+					</option>
+					<option class="js-blender-icons-group12 js-blender-icons-group12102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="26">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group12 js-blender-icons-group12101" value="1.0.1" data-dependencies="icons-base" data-version="101" data-size="58">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group12 js-blender-icons-group12100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="53">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group12" id="tick-icons-group12" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 12 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group13">
+												<strong class="blender-module-name
+												">Icons-Group 13</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group13">view</a>
+											<label for="tick-icons-group13">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-add-a"></span> <span class="icon icon-size-sm icon-add-b"></span> <span class="icon icon-size-sm icon-backspace"></span> <span class="icon icon-size-sm icon-close"></span> <span class="icon icon-size-sm icon-delete"></span> <span class="icon icon-size-sm icon-filter"></span> <span class="icon icon-size-sm icon-pause"></span> <span class="icon icon-size-sm icon-play"></span> <span class="icon icon-size-sm icon-remove"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group13">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group13" id="select-icons-group13">
+					<option class="js-blender-icons-group13 js-blender-icons-group13200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="17">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group13 js-blender-icons-group13102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="17">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group13 js-blender-icons-group13101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="17">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group13 js-blender-icons-group13100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="17">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group13" id="tick-icons-group13" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 13 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group14">
+												<strong class="blender-module-name
+												">Icons-Group 14</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group14">view</a>
+											<label for="tick-icons-group14">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-download"></span> <span class="icon icon-size-sm icon-new-window"></span> <span class="icon icon-size-sm icon-refresh"></span> <span class="icon icon-size-sm icon-search"></span> <span class="icon icon-size-sm icon-upload"></span> <span class="icon icon-size-sm icon-write"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group14">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group14" id="select-icons-group14">
+					<option class="js-blender-icons-group14 js-blender-icons-group14200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="12">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group14 js-blender-icons-group14102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="12">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group14 js-blender-icons-group14101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="12">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group14 js-blender-icons-group14100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="12">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group14" id="tick-icons-group14" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 14 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group15">
+												<strong class="blender-module-name
+												">Icons-Group 15</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group15">view</a>
+											<label for="tick-icons-group15">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-book"></span> <span class="icon icon-size-sm icon-compass"></span> <span class="icon icon-size-sm icon-cross"></span> <span class="icon icon-size-sm icon-cube"></span> <span class="icon icon-size-sm icon-global"></span> <span class="icon icon-size-sm icon-idea"></span> <span class="icon icon-size-sm icon-key"></span> <span class="icon icon-size-sm icon-more"></span> <span class="icon icon-size-sm icon-umbrella"></span> <span class="icon icon-size-sm icon-wallet"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group15">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group15" id="select-icons-group15">
+					<option class="js-blender-icons-group15 js-blender-icons-group15200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="21">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group15 js-blender-icons-group15102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="21">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group15 js-blender-icons-group15101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="21">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group15 js-blender-icons-group15100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="21">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group15" id="tick-icons-group15" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 15 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group16">
+												<strong class="blender-module-name
+												">Icons-Group 16</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group16">view</a>
+											<label for="tick-icons-group16">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-alert"></span> <span class="icon icon-size-sm icon-help"></span> <span class="icon icon-size-sm icon-info"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group16">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group16" id="select-icons-group16">
+					<option class="js-blender-icons-group16 js-blender-icons-group16201" value="2.0.1" data-dependencies="_colors101, icons-base" data-version="201" data-size="9">
+						2.0.1
+					</option>
+					<option class="js-blender-icons-group16 js-blender-icons-group16200" value="2.0.0" data-dependencies="_colors101, icons-base" data-version="200" data-size="18">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group16 js-blender-icons-group16102" value="1.0.2" data-dependencies="_colors101, icons-base" data-version="102" data-size="18">
+						1.0.2
+					</option>
+					<option class="js-blender-icons-group16 js-blender-icons-group16101" value="1.0.1" data-dependencies="_colors101, icons-base" data-version="101" data-size="18">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group16 js-blender-icons-group16100" value="1.0.0" data-dependencies="icons-base" data-version="100" data-size="18">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group16" id="tick-icons-group16" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 16 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-icons-group17">
+												<strong class="blender-module-name
+												">Icons-Group 17</strong>
+											</label><a class="blender-module-link" href="icons/#icons-group17">view</a>
+											<label for="tick-icons-group17">
+												<span class="blender-module-description
+													is-block
+												"><span class="icon icon-size-sm icon-accessibility"></span> <span class="icon icon-size-sm icon-car"></span></span>
+											</label>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-icons-group17">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-icons-group17" id="select-icons-group17">
+					<option class="js-blender-icons-group17 js-blender-icons-group17200" value="2.0.0" data-version="200" data-size="6">
+						2.0.0
+					</option>
+					<option class="js-blender-icons-group17 js-blender-icons-group17101" value="1.0.1" data-version="101" data-size="6">
+						1.0.1
+					</option>
+					<option class="js-blender-icons-group17 js-blender-icons-group17100" value="1.0.0" data-version="100" data-size="6">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-icons-group17" id="tick-icons-group17" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Icons-Group 17 module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Media</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-images">
+												<strong class="blender-module-name
+													is-block
+												">Images</strong>
+											</label>
+											<label for="tick-images">
+												<span class="blender-module-description
+												">Classes to style image boxes.</span>
+											</label>
+											<a class="blender-module-link" href="media/#images">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-images">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-images" id="select-images">
+					<option class="js-blender-images js-blender-images201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-images js-blender-images200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-images js-blender-images100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-images" id="tick-images" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Images module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-responsive-embeds">
+												<strong class="blender-module-name
+													is-block
+												">Responsive-Embeds</strong>
+											</label>
+											<label for="tick-responsive-embeds">
+												<span class="blender-module-description
+												">Classes to embed responsive video content.</span>
+											</label>
+											<a class="blender-module-link" href="media/#responsive-embeds">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-responsive-embeds">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-responsive-embeds" id="select-responsive-embeds">
+					<option class="js-blender-responsive-embeds js-blender-responsive-embeds201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-responsive-embeds js-blender-responsive-embeds200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-responsive-embeds js-blender-responsive-embeds100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-responsive-embeds" id="tick-responsive-embeds" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Responsive-Embeds module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Lists</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-list-groups">
+												<strong class="blender-module-name
+													is-block
+												">List-Groups</strong>
+											</label>
+											<label for="tick-list-groups">
+												<span class="blender-module-description
+												">Complex lists with custom content.</span>
+											</label>
+											<a class="blender-module-link" href="lists/#list-groups">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-list-groups">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-list-groups" id="select-list-groups">
+					<option class="js-blender-list-groups js-blender-list-groups300" value="3.0.0" data-version="300" data-size="1">
+						3.0.0
+					</option>
+					<option class="js-blender-list-groups js-blender-list-groups201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-list-groups js-blender-list-groups200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-list-groups js-blender-list-groups100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-list-groups" id="tick-list-groups" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the List-Groups module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-lists">
+												<strong class="blender-module-name
+													is-block
+												">Lists</strong>
+											</label>
+											<label for="tick-lists">
+												<span class="blender-module-description
+												">Styled bullet lists in various colours.</span>
+											</label>
+											<a class="blender-module-link" href="lists/#lists">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-lists">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-lists" id="select-lists">
+					<option class="js-blender-lists js-blender-lists203" value="2.0.3" data-dependencies="_colors101" data-version="203" data-size="5">
+						2.0.3
+					</option>
+					<option class="js-blender-lists js-blender-lists202" value="2.0.2" data-dependencies="_colors101" data-version="202" data-size="4">
+						2.0.2
+					</option>
+					<option class="js-blender-lists js-blender-lists201" value="2.0.1" data-dependencies="_colors101" data-version="201" data-size="4">
+						2.0.1
+					</option>
+					<option class="js-blender-lists js-blender-lists200" value="2.0.0" data-dependencies="_colors101" data-version="200" data-size="4">
+						2.0.0
+					</option>
+					<option class="js-blender-lists js-blender-lists102" value="1.0.2" data-dependencies="_colors101" data-version="102" data-size="4">
+						1.0.2
+					</option>
+					<option class="js-blender-lists js-blender-lists101" value="1.0.1" data-dependencies="_colors101" data-version="101" data-size="4">
+						1.0.1
+					</option>
+					<option class="js-blender-lists js-blender-lists100" value="1.0.0" data-version="100" data-size="4">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-lists" id="tick-lists" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Lists module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Symbols</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-logos">
+												<strong class="blender-module-name
+													is-block
+												">Logos</strong>
+											</label>
+											<label for="tick-logos">
+												<span class="blender-module-description
+												">Westpac Group brand, SVG logos.</span>
+											</label>
+											<a class="blender-module-link" href="symbols/#logos">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-logos">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-logos" id="select-logos">
+					<option class="js-blender-logos js-blender-logos203" value="2.0.3" data-dependencies="_colors101" data-version="203" data-size="96">
+						2.0.3
+					</option>
+					<option class="js-blender-logos js-blender-logos202" value="2.0.2" data-dependencies="_colors101" data-version="202" data-size="90">
+						2.0.2
+					</option>
+					<option class="js-blender-logos js-blender-logos201" value="2.0.1" data-dependencies="_colors101" data-version="201" data-size="90">
+						2.0.1
+					</option>
+					<option class="js-blender-logos js-blender-logos200" value="2.0.0" data-dependencies="_colors101" data-version="200" data-size="109">
+						2.0.0
+					</option>
+					<option class="js-blender-logos js-blender-logos101" value="1.0.1" data-dependencies="_colors101" data-version="101" data-size="109">
+						1.0.1
+					</option>
+					<option class="js-blender-logos js-blender-logos100" value="1.0.0" data-version="100" data-size="111">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-logos" id="tick-logos" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Logos module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-symbols">
+												<strong class="blender-module-name
+													is-block
+												">Symbols</strong>
+											</label>
+											<label for="tick-symbols">
+												<span class="blender-module-description
+												">Multi-colour, SVG symbols.</span>
+											</label>
+											<a class="blender-module-link" href="symbols/#symbols">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-symbols">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-symbols" id="select-symbols">
+					<option class="js-blender-symbols js-blender-symbols202" value="2.0.2" data-dependencies="_colors101" data-version="202" data-size="98">
+						2.0.2
+					</option>
+					<option class="js-blender-symbols js-blender-symbols201" value="2.0.1" data-dependencies="_colors101" data-version="201" data-size="98">
+						2.0.1
+					</option>
+					<option class="js-blender-symbols js-blender-symbols200" value="2.0.0" data-dependencies="_colors101" data-version="200" data-size="98">
+						2.0.0
+					</option>
+					<option class="js-blender-symbols js-blender-symbols101" value="1.0.1" data-dependencies="_colors101" data-version="101" data-size="98">
+						1.0.1
+					</option>
+					<option class="js-blender-symbols js-blender-symbols100" value="1.0.0" data-version="100" data-size="98">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-symbols" id="tick-symbols" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Symbols module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Popovers</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-modals">
+												<strong class="blender-module-name
+													is-block
+												">Modals</strong>
+											</label>
+											<label for="tick-modals">
+												<span class="blender-module-description
+												">Popup modals in various sizes with JavaScript API.</span>
+											</label>
+											<a class="blender-module-link" href="popovers/#modals">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-modals">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-modals" id="select-modals">
+					<option class="js-blender-modals js-blender-modals202" value="2.0.2" data-version="202" data-size="4">
+						2.0.2
+					</option>
+					<option class="js-blender-modals js-blender-modals201" value="2.0.1" data-version="201" data-size="4">
+						2.0.1
+					</option>
+					<option class="js-blender-modals js-blender-modals200" value="2.0.0" data-version="200" data-size="4">
+						2.0.0
+					</option>
+					<option class="js-blender-modals js-blender-modals101" value="1.0.1" data-version="101" data-size="4">
+						1.0.1
+					</option>
+					<option class="js-blender-modals js-blender-modals100" value="1.0.0" data-version="100" data-size="4">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-modals" id="tick-modals" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Modals module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-popovers">
+												<strong class="blender-module-name
+													is-block
+												">Popovers</strong>
+											</label>
+											<label for="tick-popovers">
+												<span class="blender-module-description
+												">Small overlay elements with simple text and links.</span>
+											</label>
+											<a class="blender-module-link" href="popovers/#popovers">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-popovers">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-popovers" id="select-popovers">
+					<option class="js-blender-popovers js-blender-popovers202" value="2.0.2" data-version="202" data-size="5">
+						2.0.2
+					</option>
+					<option class="js-blender-popovers js-blender-popovers201" value="2.0.1" data-version="201" data-size="5">
+						2.0.1
+					</option>
+					<option class="js-blender-popovers js-blender-popovers200" value="2.0.0" data-version="200" data-size="5">
+						2.0.0
+					</option>
+					<option class="js-blender-popovers js-blender-popovers101" value="1.0.1" data-version="101" data-size="5">
+						1.0.1
+					</option>
+					<option class="js-blender-popovers js-blender-popovers100" value="1.0.0" data-version="100" data-size="3">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-popovers" id="tick-popovers" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Popovers module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-tooltips">
+												<strong class="blender-module-name
+													is-block
+												">Tooltips</strong>
+											</label>
+											<label for="tick-tooltips">
+												<span class="blender-module-description
+												">Little black boxes for simple messaging.</span>
+											</label>
+											<a class="blender-module-link" href="popovers/#tooltips">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-tooltips">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-tooltips" id="select-tooltips">
+					<option class="js-blender-tooltips js-blender-tooltips201" value="2.0.1" data-version="201" data-size="2">
+						2.0.1
+					</option>
+					<option class="js-blender-tooltips js-blender-tooltips200" value="2.0.0" data-version="200" data-size="2">
+						2.0.0
+					</option>
+					<option class="js-blender-tooltips js-blender-tooltips101" value="1.0.1" data-version="101" data-size="2">
+						1.0.1
+					</option>
+					<option class="js-blender-tooltips js-blender-tooltips100" value="1.0.0" data-version="100" data-size="2">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-tooltips" id="tick-tooltips" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Tooltips module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Containers</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-panels">
+												<strong class="blender-module-name
+													is-block
+												">Panels</strong>
+											</label>
+											<label for="tick-panels">
+												<span class="blender-module-description
+												">Containers with headers and optional footers for grouping elements and text.</span>
+											</label>
+											<a class="blender-module-link" href="containers/#panels">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-panels">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-panels" id="select-panels">
+					<option class="js-blender-panels js-blender-panels201" value="2.0.1" data-version="201" data-size="2">
+						2.0.1
+					</option>
+					<option class="js-blender-panels js-blender-panels200" value="2.0.0" data-version="200" data-size="2">
+						2.0.0
+					</option>
+					<option class="js-blender-panels js-blender-panels100" value="1.0.0" data-version="100" data-size="2">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-panels" id="tick-panels" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Panels module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-tabcordions">
+												<strong class="blender-module-name
+													is-block
+												">Tabcordions</strong>
+											</label>
+											<label for="tick-tabcordions">
+												<span class="blender-module-description
+												">Tabs, accordions and a tab set that changes to an accordion based on break point.</span>
+											</label>
+											<a class="blender-module-link" href="containers/#tabcordions">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-tabcordions">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-tabcordions" id="select-tabcordions">
+					<option class="js-blender-tabcordions js-blender-tabcordions400" value="4.0.0" data-version="400" data-size="13">
+						4.0.0
+					</option>
+					<option class="js-blender-tabcordions js-blender-tabcordions300" value="3.0.0" data-version="300" data-size="12">
+						3.0.0
+					</option>
+					<option class="js-blender-tabcordions js-blender-tabcordions201" value="2.0.1" data-version="201" data-size="12">
+						2.0.1
+					</option>
+					<option class="js-blender-tabcordions js-blender-tabcordions200" value="2.0.0" data-version="200" data-size="12">
+						2.0.0
+					</option>
+					<option class="js-blender-tabcordions js-blender-tabcordions101" value="1.0.1" data-version="101" data-size="12">
+						1.0.1
+					</option>
+					<option class="js-blender-tabcordions js-blender-tabcordions100" value="1.0.0" data-version="100" data-size="12">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-tabcordions" id="tick-tabcordions" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Tabcordions module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-wells">
+												<strong class="blender-module-name
+													is-block
+												">Wells</strong>
+											</label>
+											<label for="tick-wells">
+												<span class="blender-module-description
+												">Similar to panels, without the header or footer.</span>
+											</label>
+											<a class="blender-module-link" href="containers/#wells">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-wells">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-wells" id="select-wells">
+					<option class="js-blender-wells js-blender-wells201" value="2.0.1" data-version="201" data-size="1">
+						2.0.1
+					</option>
+					<option class="js-blender-wells js-blender-wells200" value="2.0.0" data-version="200" data-size="1">
+						2.0.0
+					</option>
+					<option class="js-blender-wells js-blender-wells100" value="1.0.0" data-version="100" data-size="1">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-wells" id="tick-wells" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Wells module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-md-4">
+							<legend class="blender-category-headline content-h">Tables</legend>
+						</div>
+						<div class="col-md-8">
+							<ul class="blender-modules">
+									<li class="blender-module row">
+										<div class="col-sm-5 blender-module-text">
+											<label for="tick-tables">
+												<strong class="blender-module-name
+													is-block
+												">Tables</strong>
+											</label>
+											<label for="tick-tables">
+												<span class="blender-module-description
+												">Responsive tables, including various styling options.</span>
+											</label>
+											<a class="blender-module-link" href="tables/#tables">view</a>
+										</div>
+										<div class="col-sm-7 text-right">
+<div class="module-version js-module-version
+">
+			<label class="module-version-label" for="tick-tables">Add version</label>
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-tables" id="select-tables">
+					<option class="js-blender-tables js-blender-tables201" value="2.0.1" data-dependencies="_color201, _fonts201" data-version="201" data-size="5">
+						2.0.1
+					</option>
+					<option class="js-blender-tables js-blender-tables200" value="2.0.0" data-version="200" data-size="5">
+						2.0.0
+					</option>
+					<option class="js-blender-tables js-blender-tables100" value="1.0.0" data-version="100" data-size="5">
+						1.0.0
+					</option>
+				</select>
+			</div>
+			<label class="checkbox module-version-checkbox
+				checkbox-flip
+			">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-tables" id="tick-tables" />
+				<span class="checkbox-text">
+					<span class="sr-only">Add the Tables module</span>
+				</span>
+			</label>
+</div>
+										</div>
+									</li>
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+		<fieldset class="blender-category">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<ul class="blender-modules blender-modules-options">
+						<li class="blender-module row">
+							<div class="col-sm-5 blender-module-text">
+								<label class="blender-module-label" for="includeJquery">
+									Include jQuery in your blend?
+								</label>
+							</div>
+							<div class="col-sm-7 text-right">
+								<label class="switch">
+									<input type="checkbox" class="switch-input js-blender-option" name="includeJquery" id="includeJquery" checked="checked" />
+									<span class="switch-text">
+										Include jQuery?
+										<span class="switch-text-off">No</span>
+										<span class="switch-text-on">Yes</span>
+									</span>
+								</label>
+							</div>
+						</li>
+						<li class="blender-module row">
+							<div class="col-sm-5 blender-module-text">
+								<label class="blender-module-label" for="includeUnminifiedJS">
+									Include unminified JavaScript in your blend?
+								</label>
+							</div>
+							<div class="col-sm-7 text-right">
+								<label class="switch">
+									<input type="checkbox" class="switch-input js-blender-option" name="includeUnminifiedJS" id="includeUnminifiedJS" />
+									<span class="switch-text">
+										Include unminified JS?
+										<span class="switch-text-off">No</span>
+										<span class="switch-text-on">Yes</span>
+									</span>
+								</label>
+							</div>
+						</li>
+						<li class="blender-module row">
+							<div class="col-sm-5 blender-module-text">
+								<label class="blender-module-label" for="includeLess">
+									Include the LESS files in your blend?
+								</label>
+							</div>
+							<div class="col-sm-7 text-right">
+								<label class="switch">
+									<input type="checkbox" class="switch-input js-blender-option" name="includeLess" id="includeLess" />
+									<span class="switch-text">
+										Include Less?
+										<span class="switch-text-off">No</span>
+										<span class="switch-text-on">Yes</span>
+									</span>
+								</label>
+							</div>
+						</li>
+						<li class="blender-module row">
+							<div class="col-sm-5 blender-module-text">
+								<label class="blender-module-label" for="includeSVG">
+									Include the SVG files in your blend?
+								</label>
+							</div>
+							<div class="col-sm-7 text-right">
+								<label class="switch">
+									<input type="checkbox" class="switch-input js-blender-option" name="includeSVG" id="includeSVG" />
+									<span class="switch-text">
+										Include SVG?
+										<span class="switch-text-off">No</span>
+										<span class="switch-text-on">Yes</span>
+									</span>
+								</label>
+							</div>
+						</li>
+					</ul>
+					<div class="alert js-alert alert-info" role="note">
+						<span class="alert-icon icon icon-size-md icon-info" data-grunticon-embed=""></span>
+						<div class="alert-body">
+							<strong>Web fonts</strong>
+							The license agreements for web fonts don&rsquo;t allow us to distribute them in the blender. However, for those who work at Westpac we provide
+							an internal link to the web font package for each blend within our internal network. Please click the link supplied in the index page of the blend
+							zip and download the webfont from there.
+							Make sure you install the files into the <code class="classes">assets/font/</code> folder of your blend.
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row">
+			<div class="col-sm-12 blender-action text-right">
+					<input type="hidden" name="brand" value="BOM" />
+				<button type="submit" class="btn btn-primary btn-xl blender-submit js-blender-submit">
+					<span class="btn-text">Blend</span>
+					<span class="btn-icon icon icon-size-md icon-download" data-grunticon-embed=""></span>
+					<span class="btn-icon icon icon-size-md icon-refresh" data-grunticon-embed="" style="display:none;"></span>
+				</button>
+			</div>
+		</div>
+	</form>
+</section>
+				</div>
+			</div>
+			<button class="btn btn-link btn-pokemon js-pokemonbtn" style="position:relative;float:right;padding:2em;">
+				<img src="assets/img/pokemon25.png" alt="Pokemon enable button" style="width:32px;height:auto;">
+			</button>
+		</main>
+	</div>
+<footer class="footer js-footer">
+	<span class="footer-social">
+		<span class="footer-social-text hidden-xs">Talk to us</span>
+		<a class="footer-social-item icon icon-size-md icon-email" href="mailto:gel@westpac.com.au" data-grunticon-embed>Email us</a>
+		<a class="footer-social-item sitesymbol-slack" href="https://westpac-digital.slack.com/signup" target="_blank" data-grunticon-embed>Slack us</a>
+		<a class="footer-social-item icon icon-size-md icon-github" href="https://github.com/WestpacCXTeam/" target="_blank" data-grunticon-embed>GitHub</a>
+	</span>
+	<a class="btn btn-link footer-button js-scrollToTop" href="blender/#top">Top</a>
+</footer>
+	<script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
+	<script type="text/javascript" src="assets/js/site-0.2.0.min.js"></script>
+</body>
+</html>
